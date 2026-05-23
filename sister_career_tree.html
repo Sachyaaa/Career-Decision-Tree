@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Decision Tree — BBA to Tech (AI Era 2026)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  display: flex; align-items: center;
+  padding: 10px 24px; gap: 8px; flex-wrap: wrap;
+}
+.top-nav h2 { font-size: 0.8rem; color: #64748b; margin-right: 6px; white-space: nowrap; }
+.nav-btn {
+  padding: 5px 12px; border-radius: 20px; border: none; cursor: pointer;
+  font-size: 0.72rem; font-weight: 600; text-decoration: none; display: inline-block;
+  transition: opacity 0.2s;
+}
+.nav-btn:hover { opacity: 0.8; }
+.nb1 { background: #059669; color: #fff; }
+.nb2 { background: #0284c7; color: #fff; }
+.nb3 { background: #7c3aed; color: #fff; }
+.nb4 { background: #b45309; color: #fff; }
+.nb5 { background: linear-gradient(90deg,#6366f1,#ec4899); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  padding: 36px 24px 28px; text-align: center;
+  border-bottom: 1px solid #312e81;
+}
+.hero h1 { font-size: 1.6rem; color: #f8fafc; margin-bottom: 4px; }
+.hero .sub { color: #a5b4fc; font-size: 0.83rem; margin-bottom: 18px; }
+.profile-grid { display: inline-flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.prof-badge {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(165,180,252,0.3);
+  border-radius: 8px; padding: 7px 12px; font-size: 0.73rem; color: #c7d2fe;
+}
+.prof-badge strong { display: block; font-size: 0.62rem; color: #818cf8; margin-bottom: 1px; text-transform: uppercase; }
+
+/* ── OVERVIEW TREE ── */
+.overview { max-width: 1400px; margin: 26px auto; padding: 0 20px; }
+.overview h3 { text-align:center; font-size: 0.78rem; color: #475569; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.ov-tree { display: flex; flex-direction: column; align-items: center; }
+.ov-root {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 12px; padding: 10px 26px; font-size: 0.85rem; font-weight: 600; color: #fff; text-align: center;
+}
+.ov-vline { width: 2px; height: 20px; background: #334155; }
+.ov-hbar { width: 82%; height: 2px; background: #334155; }
+.ov-branches { display: grid; grid-template-columns: repeat(5, 1fr); width: 82%; }
+.ov-branch { display: flex; flex-direction: column; align-items: center; }
+.ov-branch-vline { width: 2px; height: 20px; }
+.ov-branch-card {
+  border-radius: 10px; padding: 9px 10px; text-align: center;
+  font-size: 0.7rem; font-weight: 600; width: 88%; cursor: pointer;
+  transition: transform 0.15s; text-decoration: none; display: block; color: #fff;
+}
+.ov-branch-card:hover { transform: translateY(-2px); }
+.oc1{background:#059669;} .oc2{background:#0284c7;outline:2px solid #38bdf8;} .oc3{background:#7c3aed;} .oc4{background:#b45309;} .oc5{background:linear-gradient(135deg,#6366f1,#ec4899);}
+.ov-rec { font-size: 0.58rem; background: rgba(255,255,255,0.2); border-radius: 8px; padding: 1px 5px; margin-top: 3px; display: inline-block; }
+
+/* ── SECTION ── */
+.path-section { max-width: 1400px; margin: 0 auto 56px; padding: 0 20px; }
+.section-header {
+  border-radius: 14px; padding: 18px 24px; margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.sh-left h2 { font-size: 1.15rem; color: #fff; margin-bottom: 3px; }
+.sh-left p { font-size: 0.78rem; opacity: 0.85; }
+.sh-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.sh-tag { background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 11px; font-size: 0.68rem; color: rgba(255,255,255,0.9); }
+.sh-p1{background:linear-gradient(135deg,#064e3b,#059669);}
+.sh-p2{background:linear-gradient(135deg,#0c4a6e,#0284c7);border:2px solid #38bdf8;}
+.sh-p3{background:linear-gradient(135deg,#2e1065,#7c3aed);}
+.sh-p4{background:linear-gradient(135deg,#431407,#b45309);}
+.sh-p5{background:linear-gradient(135deg,#1e1b4b,#4f46e5,#7c3aed);border:2px solid #818cf8;}
+
+/* ── GRID ── */
+.nodes-grid { display: grid; gap: 18px; }
+.nodes-grid.cols2 { grid-template-columns: repeat(2,1fr); }
+.nodes-grid.cols3 { grid-template-columns: repeat(3,1fr); }
+
+/* ── NODE CARD ── */
+.node-card {
+  background: #1e293b; border-radius: 14px; padding: 18px;
+  border-top: 3px solid; display: flex; flex-direction: column; gap: 12px;
+}
+.nc-p1{border-color:#10b981;} .nc-p2{border-color:#38bdf8;} .nc-p3{border-color:#a78bfa;}
+.nc-p4{border-color:#f59e0b;} .nc-exam{border-color:#f472b6;} .nc-ai{border-color:#818cf8;}
+.nc-always{border-color:#fbbf24;background:#1c1a0f;}
+
+.node-card h3 { font-size: 0.92rem; color: #f1f5f9; }
+.node-card .node-desc { font-size: 0.76rem; color: #94a3b8; line-height: 1.6; }
+
+/* ── CHIPS ── */
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: 0.63rem; border-radius: 6px; padding: 3px 8px; font-weight: 600; }
+.ch-salary{background:#064e3b;color:#6ee7b7;} .ch-time{background:#1e3a5f;color:#7dd3fc;}
+.ch-cost{background:#422006;color:#fde68a;} .ch-diff{background:#3b0764;color:#e879f9;}
+.ch-rec{background:#0c4a6e;color:#38bdf8;} .ch-warn{background:#7f1d1d;color:#fca5a5;}
+.ch-neutral{background:#1e293b;color:#94a3b8;border:1px solid #334155;}
+
+/* ── SUCCESS METER ── */
+.success-wrap {
+  background: #0f172a; border-radius: 8px; padding: 11px 13px;
+}
+.success-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+.success-label { font-size: 0.68rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+.success-pct { font-size: 1.1rem; font-weight: 800; }
+.pct-high { color: #4ade80; }
+.pct-med  { color: #fbbf24; }
+.pct-low  { color: #f87171; }
+.success-track {
+  height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden; margin-bottom: 5px;
+}
+.success-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, #4ade80, #22d3ee);
+  transition: width 0.5s;
+}
+.success-fill.med { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+.success-fill.low { background: linear-gradient(90deg,#ef4444,#f87171); }
+.success-note { font-size: 0.67rem; color: #64748b; line-height: 1.5; }
+
+/* ── PROS / CONS ── */
+.pc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pros-box,.cons-box { border-radius: 8px; padding: 11px; }
+.pros-box{background:#052e16;} .cons-box{background:#2d0a0a;}
+.pros-box h4{color:#4ade80;font-size:0.68rem;margin-bottom:7px;text-transform:uppercase;letter-spacing:.4px;}
+.cons-box h4{color:#f87171;font-size:0.68rem;margin-bottom:7px;text-transform:uppercase;letter-spacing:.4px;}
+.pros-box ul,.cons-box ul{padding-left:0;list-style:none;}
+.pros-box ul li::before{content:'✓ ';color:#4ade80;}
+.cons-box ul li::before{content:'✗ ';color:#f87171;}
+.pros-box ul li,.cons-box ul li{font-size:0.7rem;color:#cbd5e1;line-height:1.7;padding-left:3px;}
+
+/* ── AI ERA BOX ── */
+.ai-box {
+  background: #0a0f1e;
+  border: 1px solid #3730a3;
+  border-radius: 10px; padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.ai-box-header {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+}
+.ai-box-title { font-size: 0.72rem; color: #818cf8; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+.ai-threat-badge {
+  font-size: 0.62rem; border-radius: 20px; padding: 2px 10px; font-weight: 700;
+}
+.tl { background: #052e16; color: #4ade80; }
+.tm { background: #422006; color: #fbbf24; }
+.th { background: #2d0a0a; color: #f87171; }
+
+.ai-resilience-row { display: flex; align-items: center; gap: 8px; }
+.ai-res-label { font-size: 0.65rem; color: #64748b; white-space: nowrap; }
+.ai-res-track { flex: 1; height: 6px; background: #1e293b; border-radius: 99px; overflow: hidden; }
+.ai-res-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg,#6366f1,#a855f7); }
+.ai-res-score { font-size: 0.7rem; color: #a5b4fc; font-weight: 700; white-space: nowrap; }
+
+.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ai-col h5 { font-size: 0.65rem; color: #6366f1; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 5px; }
+.ai-col ul { padding-left: 0; list-style: none; }
+.ai-col ul li { font-size: 0.68rem; color: #c7d2fe; line-height: 1.65; }
+.ai-col ul li::before { content: '▸ '; color: #6366f1; }
+.ai-tools { display: flex; flex-wrap: wrap; gap: 4px; }
+.ai-tool-chip {
+  font-size: 0.62rem; background: #1e1b4b; border: 1px solid #4f46e5;
+  border-radius: 5px; padding: 2px 7px; color: #a5b4fc;
+}
+
+/* ── STEPS BOX ── */
+.steps-box { background: #0f172a; border-radius: 8px; padding: 11px; }
+.steps-box h4 { color: #94a3b8; font-size: 0.68rem; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 7px; }
+.steps-box ol,.steps-box ul { padding-left: 14px; }
+.steps-box li { font-size: 0.71rem; color: #cbd5e1; line-height: 1.75; }
+
+/* ── OUTCOME BOX ── */
+.outcome-box {
+  background: linear-gradient(135deg,#0c2340,#0c4a6e);
+  border-radius: 8px; padding: 11px; border-left: 3px solid #38bdf8;
+  font-size: 0.73rem; color: #bae6fd; line-height: 1.6;
+}
+.outcome-box strong { color: #7dd3fc; display: block; margin-bottom: 3px; }
+
+.company-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.company-chip {
+  font-size: 0.62rem; background: #1e293b; border: 1px solid #334155;
+  border-radius: 5px; padding: 2px 8px; color: #94a3b8;
+}
+
+/* ── EXAM CARDS ── */
+.exam-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.exam-card {
+  background: #1e293b; border-radius: 13px; padding: 16px;
+  border-top: 3px solid #f472b6; display: flex; flex-direction: column; gap: 9px;
+}
+.exam-card h3 { font-size: 0.88rem; color: #f9a8d4; }
+.exam-card .exam-full { font-size: 0.66rem; color: #64748b; }
+.diff-bar { display: flex; gap: 3px; align-items: center; }
+.diff-star { width: 12px; height: 12px; border-radius: 50%; background: #1e293b; border: 1px solid #334155; }
+.diff-star.filled { background: #f472b6; border-color: #f472b6; }
+.diff-label { font-size: 0.65rem; color: #94a3b8; margin-left: 5px; }
+.exam-table { width: 100%; border-collapse: collapse; }
+.exam-table td { font-size: 0.68rem; padding: 4px 5px; border-bottom: 1px solid #0f172a; vertical-align: top; }
+.exam-table td:first-child { color: #64748b; width: 36%; white-space: nowrap; }
+.exam-table td:last-child { color: #cbd5e1; }
+.realistic-box { border-radius: 6px; padding: 7px 9px; font-size: 0.68rem; line-height: 1.5; }
+.realistic-good{background:#052e16;border-left:3px solid #10b981;color:#a7f3d0;}
+.realistic-medium{background:#1c1914;border-left:3px solid #f59e0b;color:#fde68a;}
+.realistic-hard{background:#2d0a0a;border-left:3px solid #ef4444;color:#fca5a5;}
+
+/* ── ALWAYS CARD ── */
+.always-card { background:#1c1a08;border:2px solid #fbbf24;border-radius:13px;padding:18px;margin-bottom:18px; }
+.always-card h3{color:#fde68a;font-size:.95rem;margin-bottom:5px;}
+.always-card p{font-size:.76rem;color:#d97706;margin-bottom:10px;}
+
+/* ── DIVIDER ── */
+.section-divider{text-align:center;color:#334155;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin:8px 0 16px;position:relative;}
+.section-divider::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:#1e293b;}
+.section-divider span{background:#0f172a;padding:0 10px;position:relative;}
+
+/* ── REC BANNER ── */
+.rec-banner{background:linear-gradient(135deg,#0c4a6e,#1e3a5f);border:1px solid #0ea5e9;border-radius:13px;padding:18px 22px;margin:26px 0;font-size:.8rem;color:#e0f2fe;line-height:1.8;}
+.rec-banner strong{color:#38bdf8;}
+
+/* ── AI ERA PAGE SECTION ── */
+.ai-era-section{background:linear-gradient(135deg,#0f0f2e,#1a1040);border-top:1px solid #3730a3;border-bottom:1px solid #3730a3;padding:40px 0;}
+.ai-era-inner{max-width:1400px;margin:0 auto;padding:0 20px;}
+.ai-era-inner h2{font-size:1.3rem;color:#a5b4fc;margin-bottom:6px;}
+.ai-era-inner .ai-sub{font-size:.8rem;color:#6366f1;margin-bottom:24px;}
+.ai-career-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.ai-career-card{
+  background:#0f172a;border:1px solid #4f46e5;border-radius:13px;padding:18px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.ai-career-card h3{font-size:.88rem;color:#c7d2fe;}
+.acc-hot{border-color:#ec4899;background:linear-gradient(135deg,#1a0620,#0f172a);}
+.acc-hot h3{color:#f9a8d4;}
+.ai-demand-bar{display:flex;align-items:center;gap:8px;}
+.ai-demand-track{flex:1;height:6px;background:#1e293b;border-radius:99px;overflow:hidden;}
+.ai-demand-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#ec4899,#a855f7);}
+.ai-demand-label{font-size:.65rem;color:#94a3b8;white-space:nowrap;}
+
+/* ── COMPARE TABLE ── */
+.compare-wrap{max-width:1400px;margin:0 auto;padding:0 20px 50px;}
+.compare-table{width:100%;border-collapse:collapse;}
+.compare-table th{background:#1e293b;padding:9px 11px;font-size:.72rem;color:#94a3b8;text-align:left;border-bottom:2px solid #0f172a;}
+.compare-table td{padding:9px 11px;font-size:.7rem;color:#cbd5e1;border-bottom:1px solid #1e293b;vertical-align:top;}
+.compare-table tr:hover td{background:#1e293b55;}
+
+footer{text-align:center;color:#334155;font-size:.68rem;padding:28px 20px;border-top:1px solid #1e293b;}
+
+/* ── PLAN B BOX ── */
+.plan-b {
+  background: #1a1108; border: 1px dashed #92400e;
+  border-radius: 8px; padding: 12px 14px;
+}
+.plan-b h4 {
+  color: #f59e0b; font-size: 0.68rem; text-transform: uppercase;
+  letter-spacing: 0.4px; margin-bottom: 9px;
+}
+.plan-b ol { padding-left: 15px; }
+.plan-b ol li { font-size: 0.7rem; color: #fcd34d; line-height: 1.75; }
+.plan-b ol li span { color: #94a3b8; }
+.plan-b .pb-last {
+  margin-top: 8px; padding-top: 8px; border-top: 1px solid #422006;
+  font-size: 0.69rem; color: #f87171; line-height: 1.6;
+}
+.plan-b .pb-last::before { content: '🚨 Nuclear option: '; font-weight: 700; }
+.plan-b-compact {
+  background: #1a1108; border: 1px dashed #92400e;
+  border-radius: 6px; padding: 9px 11px; font-size: 0.67rem; line-height: 1.7;
+}
+.plan-b-compact strong { color: #f59e0b; display: block; margin-bottom: 4px; font-size: 0.68rem; }
+.plan-b-compact li { color: #fcd34d; margin-left: 12px; }
+.plan-b-compact .pb-all-fail { color: #f87171; margin-top: 5px; padding-top: 5px; border-top: 1px solid #422006; display: block; }
+
+@media(max-width:960px){
+  .nodes-grid.cols3{grid-template-columns:1fr 1fr;}
+  .exam-grid,.ai-career-grid{grid-template-columns:1fr 1fr;}
+  .ov-branches{grid-template-columns:1fr 1fr 1fr;}
+}
+@media(max-width:640px){
+  .nodes-grid.cols2,.nodes-grid.cols3{grid-template-columns:1fr;}
+  .exam-grid,.ai-career-grid{grid-template-columns:1fr;}
+  .pc-row,.ai-grid{grid-template-columns:1fr;}
+  .ov-branches{grid-template-columns:1fr 1fr;}
+}
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: linear-gradient(135deg,#0a0a1e,#12103a,#0a0a1e);
+  border-top: 2px solid #4f46e5; border-bottom: 2px solid #4f46e5;
+  padding: 44px 0;
+}
+.quiz-inner { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.quiz-header { text-align: center; margin-bottom: 28px; }
+.quiz-header h2 { font-size: 1.3rem; color: #a5b4fc; margin-bottom: 8px; }
+.quiz-header p  { font-size: 0.8rem; color: #6366f1; }
+
+.quiz-progress { display: flex; gap: 6px; justify-content: center; margin-bottom: 24px; }
+.quiz-dot { width: 8px; height: 8px; border-radius: 50%; background: #1e293b; border: 1px solid #4f46e5; transition: background .3s; }
+.quiz-dot.done { background: #4f46e5; }
+
+.quiz-q { margin-bottom: 22px; }
+.quiz-q-label { font-size: 0.82rem; color: #c7d2fe; font-weight: 600; margin-bottom: 10px; display: block; }
+.quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.quiz-opt {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 10px;
+  padding: 12px 14px; cursor: pointer; transition: all .2s;
+  display: flex; align-items: flex-start; gap: 10px; user-select: none;
+}
+.quiz-opt:hover { border-color: #4f46e5; background: #1e1b4b; }
+.quiz-opt.selected { border-color: #818cf8; background: #1e1b4b; box-shadow: 0 0 0 2px #4f46e566; }
+.quiz-opt input { display: none; }
+.opt-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.opt-text { font-size: 0.72rem; color: #cbd5e1; line-height: 1.5; }
+.quiz-opt.selected .opt-text { color: #e0e7ff; }
+
+.quiz-btn {
+  display: block; width: 100%; margin-top: 24px;
+  background: linear-gradient(135deg,#4f46e5,#7c3aed); color: #fff;
+  border: none; border-radius: 10px; padding: 14px 20px;
+  font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+.quiz-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+.quiz-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.quiz-result { margin-top: 28px; }
+.qr-card {
+  border-radius: 14px; padding: 22px 24px;
+  border: 2px solid; animation: fadeIn .4s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.qr-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.qr-label { font-size: 0.68rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .5px; }
+.qr-title { font-size: 1.05rem; font-weight: 800; }
+.qr-why  { font-size: 0.77rem; line-height: 1.7; margin-bottom: 14px; }
+.qr-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.qr-btn {
+  padding: 8px 18px; border-radius: 20px; border: none; cursor: pointer;
+  font-size: 0.75rem; font-weight: 700; text-decoration: none; display: inline-block;
+  transition: opacity .2s;
+}
+.qr-btn:hover { opacity: 0.85; }
+.qr-btn-primary { background: #4f46e5; color: #fff; }
+.qr-btn-secondary { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
+.qr-also { font-size: 0.7rem; color: #64748b; margin-top: 10px; }
+
+@media(max-width:580px){
+  .quiz-opts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <h2>Career Tree:</h2>
+  <a href="#path1" class="nav-btn nb1">Path 1 — Direct Job</a>
+  <a href="#path2" class="nav-btn nb2">★ Path 2 — Certs (Recommended)</a>
+  <a href="#path3" class="nav-btn nb3">Path 3 — Entrance Exam</a>
+  <a href="#path4" class="nav-btn nb4">Path 4 — Freelance</a>
+  <a href="#aiera" class="nav-btn nb5">🤖 AI Era Careers</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Career Decision Tree — BBA to Tech (AI Era 2026)</h1>
+  <p class="sub">Success chances · Pros & cons · Entrance exams · AI impact on every path · India job market</p>
+  <div class="profile-grid">
+    <div class="prof-badge"><strong>Degree</strong>BBA Final Year (Distance)</div>
+    <div class="prof-badge"><strong>Grades</strong>75%+ Distinction</div>
+    <div class="prof-badge"><strong>Coding</strong>HTML / Python / Java (basic)</div>
+    <div class="prof-badge"><strong>College</strong>3rd tier — no placement</div>
+    <div class="prof-badge"><strong>Budget</strong>Moderate-tight</div>
+    <div class="prof-badge"><strong>Goal</strong>Stable job fast + tech career</div>
+    <div class="prof-badge"><strong>Priority</strong>Spoken English first</div>
+  </div>
+</div>
+
+<!-- QUIZ SECTION -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <h2>🎯 Answer 5 Quick Questions — Get Your Personal Path</h2>
+      <p>Your goals, timeline &amp; interests → one clear recommendation tailored to you</p>
+    </div>
+
+    <div class="quiz-progress">
+      <div class="quiz-dot" id="dot1"></div>
+      <div class="quiz-dot" id="dot2"></div>
+      <div class="quiz-dot" id="dot3"></div>
+      <div class="quiz-dot" id="dot4"></div>
+      <div class="quiz-dot" id="dot5"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="quiz-q">
+      <span class="quiz-q-label">1 of 5 &nbsp;·&nbsp; What is your biggest goal right now?</span>
+      <div class="quiz-opts" data-q="q1">
+        <div class="quiz-opt" data-v="A"><span class="opt-icon">⚡</span><span class="opt-text">Get a job as quickly as possible — income in 3–5 months</span></div>
+        <div class="quiz-opt" data-v="B"><span class="opt-icon">🎯</span><span class="opt-text">Get the best-paying job, even if it takes 6–9 months to prep</span></div>
+        <div class="quiz-opt" data-v="C"><span class="opt-icon">💻</span><span class="opt-text">Build a serious tech career — coding, AI, development is where I want to go</span></div>
+        <div class="quiz-opt" data-v="D"><span class="opt-icon">🚀</span><span class="opt-text">Be my own boss — freelance work or start a business</span></div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q">
+      <span class="quiz-q-label">2 of 5 &nbsp;·&nbsp; How long can you wait before starting to earn?</span>
+      <div class="quiz-opts" data-q="q2">
+        <div class="quiz-opt" data-v="A"><span class="opt-icon">🔥</span><span class="opt-text">I need to start earning within 3–4 months — it's urgent</span></div>
+        <div class="quiz-opt" data-v="B"><span class="opt-icon">📅</span><span class="opt-text">I can wait 6–9 months with family support — no extreme pressure</span></div>
+        <div class="quiz-opt" data-v="C"><span class="opt-icon">🏛️</span><span class="opt-text">I can invest 1–2 years for the right path (entrance exam, long course)</span></div>
+        <div class="quiz-opt" data-v="D"><span class="opt-icon">💰</span><span class="opt-text">I want to earn something small while I'm studying/prepping</span></div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q">
+      <span class="quiz-q-label">3 of 5 &nbsp;·&nbsp; What kind of work excites you most?</span>
+      <div class="quiz-opts" data-q="q3">
+        <div class="quiz-opt" data-v="A"><span class="opt-icon">📊</span><span class="opt-text">Numbers, data, charts — finding patterns and insights</span></div>
+        <div class="quiz-opt" data-v="B"><span class="opt-icon">🗂️</span><span class="opt-text">Talking to people, mapping processes, writing requirements</span></div>
+        <div class="quiz-opt" data-v="C"><span class="opt-icon">⌨️</span><span class="opt-text">Building apps, writing code, creating software products</span></div>
+        <div class="quiz-opt" data-v="D"><span class="opt-icon">📣</span><span class="opt-text">Marketing, selling, growing a brand or running a business</span></div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q">
+      <span class="quiz-q-label">4 of 5 &nbsp;·&nbsp; How do you feel about entrance exams (CAT, CMAT, NMAT)?</span>
+      <div class="quiz-opts" data-q="q4">
+        <div class="quiz-opt" data-v="A"><span class="opt-icon">💪</span><span class="opt-text">Ready to study hard for 4–6 months — exams don't scare me</span></div>
+        <div class="quiz-opt" data-v="B"><span class="opt-icon">🤔</span><span class="opt-text">I'll try but don't want to risk a full year on just one exam</span></div>
+        <div class="quiz-opt" data-v="C"><span class="opt-icon">📜</span><span class="opt-text">Not interested — I prefer certifications and skills over exams</span></div>
+        <div class="quiz-opt" data-v="D"><span class="opt-icon">🤷</span><span class="opt-text">Undecided — depends on what makes sense for my goal</span></div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q">
+      <span class="quiz-q-label">5 of 5 &nbsp;·&nbsp; How do you feel about AI and tech tools?</span>
+      <div class="quiz-opts" data-q="q5">
+        <div class="quiz-opt" data-v="A"><span class="opt-icon">🤖</span><span class="opt-text">Excited — I want to build things with AI (chatbots, apps, tools)</span></div>
+        <div class="quiz-opt" data-v="B"><span class="opt-icon">📈</span><span class="opt-text">Interested — I want to use AI tools to work smarter, not build from scratch</span></div>
+        <div class="quiz-opt" data-v="C"><span class="opt-icon">🧠</span><span class="opt-text">Neutral — I'll learn what's needed but AI isn't my main interest</span></div>
+        <div class="quiz-opt" data-v="D"><span class="opt-icon">😅</span><span class="opt-text">Honestly it feels overwhelming — I'd rather focus on business/management</span></div>
+      </div>
+    </div>
+
+    <button class="quiz-btn" id="quiz-submit" disabled>
+      Show My Recommended Path →
+    </button>
+
+    <div class="quiz-result" id="quiz-result"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW TREE -->
+<div class="overview">
+  <h3>Overview — 5 Paths Available</h3>
+  <div class="ov-tree">
+    <div class="ov-root">BBA Graduation 2026 — Distance Mode (Last Year)</div>
+    <div class="ov-vline"></div>
+    <div class="ov-hbar"></div>
+    <div class="ov-branches">
+      <div class="ov-branch">
+        <div class="ov-branch-vline" style="background:#059669"></div>
+        <a href="#path1" class="ov-branch-card oc1">Path 1<br>Direct Job Hunt<br><span class="ov-rec">30–50% success</span></a>
+      </div>
+      <div class="ov-branch">
+        <div class="ov-branch-vline" style="background:#38bdf8"></div>
+        <a href="#path2" class="ov-branch-card oc2">★ Path 2<br>Certs + Job + Distance MBA<br><span class="ov-rec">65–80% · RECOMMENDED</span></a>
+      </div>
+      <div class="ov-branch">
+        <div class="ov-branch-vline" style="background:#a78bfa"></div>
+        <a href="#path3" class="ov-branch-card oc3">Path 3<br>Entrance Exam → Better College<br><span class="ov-rec">20–72% by exam</span></a>
+      </div>
+      <div class="ov-branch">
+        <div class="ov-branch-vline" style="background:#f59e0b"></div>
+        <a href="#path4" class="ov-branch-card oc4">Path 4<br>Freelance / Startup<br><span class="ov-rec">42% stable in yr 1</span></a>
+      </div>
+      <div class="ov-branch">
+        <div class="ov-branch-vline" style="background:#818cf8"></div>
+        <a href="#aiera" class="ov-branch-card oc5">🤖 AI Era<br>New AI-native Careers<br><span class="ov-rec">Emerging · High ceiling</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PATH 1 ══════════ -->
+<div class="path-section" id="path1">
+  <div class="section-header sh-p1">
+    <div class="sh-left">
+      <h2>⚡ Path 1 — Direct Job Hunt</h2>
+      <p>Apply immediately after graduation. Best if income is urgent. Lower success rate without extra prep.</p>
+    </div>
+    <div class="sh-tags">
+      <span class="sh-tag">0–3 months to apply</span>
+      <span class="sh-tag">Near-zero cost</span>
+      <span class="sh-tag">AI threat: Medium-High</span>
+    </div>
+  </div>
+
+  <div class="nodes-grid cols2">
+
+    <!-- BA Direct -->
+    <div class="node-card nc-p1">
+      <h3>🔷 Business Analyst — IT / Consulting (Direct)</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹3–6 LPA fresher</span>
+        <span class="chip ch-time">2–3 months prep</span>
+        <span class="chip ch-cost">₹0–5K</span>
+        <span class="chip ch-rec">Best fit for BBA</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 4 months)</span>
+          <span class="success-pct pct-med">50%</span>
+        </div>
+        <div class="success-track"><div class="success-fill med" style="width:50%"></div></div>
+        <div class="success-note">Moderate. BBA is a natural fit, but the fresher BA market is competitive and most candidates lack portfolios. With SQL + JIRA + case studies done properly, chance rises to ~65%.</div>
+      </div>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>BBA background matches naturally</li>
+          <li>No heavy coding required</li>
+          <li>Roles available at every IT company</li>
+          <li>Can start applying in 2–3 months</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Low starting salary at service companies</li>
+          <li>Growth ceiling without tech or MBA</li>
+          <li>Competitive fresher market post-COVID</li>
+          <li>AI automating basic BA documentation tasks</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge tm">⚠ Medium AI Threat</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:58%"></div></div>
+          <span class="ai-res-score">58 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>Threat</h5><ul>
+            <li>AI tools (Notion AI, ChatGPT) now auto-generate BRDs, user stories, and meeting notes</li>
+            <li>Basic requirements gathering is being automated</li>
+            <li>Junior BA roles are shrinking at large IT companies</li>
+          </ul></div>
+          <div class="ai-col"><h5>Opportunity</h5><ul>
+            <li>AI-literate BA who validates AI outputs = highly valued</li>
+            <li>"AI Product Owner" is a hot new role</li>
+            <li>Companies need humans to bridge AI and stakeholders</li>
+          </ul></div>
+        </div>
+        <div><span class="ai-box-title" style="display:inline;">AI Tools to Learn: </span></div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">ChatGPT for docs</span>
+          <span class="ai-tool-chip">Notion AI</span>
+          <span class="ai-tool-chip">GitHub Copilot</span>
+          <span class="ai-tool-chip">Miro AI</span>
+        </div>
+      </div>
+
+      <div class="steps-box"><h4>What to do to land this role</h4><ol>
+        <li>Learn SQL basics — Mode Analytics / W3Schools (4 weeks, free)</li>
+        <li>Learn JIRA & Confluence — free trials available</li>
+        <li>Complete Google BI Certificate (Coursera, 3 months)</li>
+        <li>Study Agile / Scrum — Scrum.org free resources</li>
+        <li>Write 2 case studies: process flow + BRD for an imaginary business</li>
+        <li>Apply: LinkedIn, Naukri, Indeed — "BA fresher" or "Systems Analyst"</li>
+      </ol></div>
+      <div class="company-chips">
+        <span class="company-chip">TCS</span><span class="company-chip">Wipro</span>
+        <span class="company-chip">Infosys</span><span class="company-chip">Capgemini</span>
+        <span class="company-chip">Cognizant</span><span class="company-chip">LTIMindtree</span>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Job After 4 Months of Applying</h4>
+        <ol>
+          <li><span>Month 5:</span> Add SQL + Power BI (2–3 weeks) → reapply as "Technical BA" — commands ₹5–8L vs plain BA at ₹3–4L.</li>
+          <li><span>Month 5:</span> Widen target — apply to small IT firms, digital agencies, boutique consultancies, not just TCS/Wipro. They have lower competition.</li>
+          <li><span>Month 6:</span> Try internship route on Internshala — even ₹5K/month stipend internship for 3 months gives "experience" that unlocks full-time doors.</li>
+          <li><span>Month 6:</span> Apply to adjacent roles: MIS Executive, Reporting Analyst, Operations Analyst — same skills, less competition.</li>
+          <li><span>Month 7:</span> Offer free consultation to 1 startup for 2 weeks → ask for LinkedIn recommendation → reapply with real project reference.</li>
+        </ol>
+        <p class="pb-last">If 8 months with zero offers — pivot to Data Analytics track (Track A, Path 2). She's already 70% there with BA prep. 6 more weeks of Power BI + Python = ready.</p>
+      </div>
+    </div>
+
+    <!-- Junior Dev Direct -->
+    <div class="node-card nc-p1">
+      <h3>💻 Junior Developer — Fresher (Direct)</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹2.5–5 LPA</span>
+        <span class="chip ch-time">3–4 months prep</span>
+        <span class="chip ch-cost">₹0–3K</span>
+        <span class="chip ch-warn">Very Competitive</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 4 months)</span>
+          <span class="success-pct pct-low">28%</span>
+        </div>
+        <div class="success-track"><div class="success-fill low" style="width:28%"></div></div>
+        <div class="success-note">Low. BBA + no CS degree gets filtered out by ATS at large companies. Only realistic at startups if she has a GitHub portfolio with 3+ projects. Market is flooded with CS freshers in 2026.</div>
+      </div>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>High long-term ceiling if she gets in</li>
+          <li>Existing HTML + Python = some base</li>
+          <li>Startups don't filter by degree</li>
+          <li>Remote work possible after experience</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>BBA + no CS degree = ATS filtered out</li>
+          <li>Market flooded with CS grads in 2026</li>
+          <li>AI coding tools raising the bar for junior devs</li>
+          <li>Needs 3+ projects + strong GitHub</li>
+          <li>No campus placement to fall back on</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge th">⚠ High AI Threat (Junior Level)</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:50%"></div></div>
+          <span class="ai-res-score">50 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>Threat</h5><ul>
+            <li>GitHub Copilot writes boilerplate code — junior tasks are being automated</li>
+            <li>Companies hiring fewer junior devs and expecting more from each</li>
+            <li>AI code review tools reduce need for large junior teams</li>
+          </ul></div>
+          <div class="ai-col"><h5>Opportunity</h5><ul>
+            <li>Dev who uses AI tools = 3-5x more productive = more valuable</li>
+            <li>Demand for AI-integrated apps is exploding</li>
+            <li>Python (she has it) = top language for AI/ML scripts</li>
+          </ul></div>
+        </div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">GitHub Copilot</span>
+          <span class="ai-tool-chip">Cursor IDE</span>
+          <span class="ai-tool-chip">ChatGPT for code</span>
+          <span class="ai-tool-chip">v0.dev</span>
+        </div>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Job After 4 Months of Applying</h4>
+        <ol>
+          <li><span>Immediate:</span> Audit GitHub — if fewer than 3 projects, stop applying and build them first. Quality beats quantity here.</li>
+          <li><span>Month 5:</span> Lower bar — target web agencies, digital marketing firms, small software shops (10–50 person companies). They don't ATS-filter on degree.</li>
+          <li><span>Month 5:</span> Apply for internships instead of full-time — 3 months paid/unpaid intern → most convert to full-time. Internshala, Unstop, LinkedIn.</li>
+          <li><span>Month 6:</span> Rebuild one project to be AI-integrated (add a ChatGPT API feature) — in 2026 this immediately makes resume stand out.</li>
+          <li><span>Month 6:</span> Try freelance on Upwork — one completed project = real client experience = justifies adding "professional experience" to resume.</li>
+        </ol>
+        <p class="pb-last">If 8 months with no traction — shift to Full-Stack Bootcamp (Track C, Path 2). ISA model means zero cost. Bootcamp's structured curriculum + placement support is more reliable than self-taught job hunt for BBA grads.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PATH 2 ══════════ -->
+<div class="path-section" id="path2">
+  <div class="section-header sh-p2">
+    <div class="sh-left">
+      <h2>★ Path 2 — Certifications + Job + Distance Masters (RECOMMENDED)</h2>
+      <p>Get certified → get a job → pursue distance MBA/MCA while earning. Best ROI. Highest success rate for her profile.</p>
+    </div>
+    <div class="sh-tags">
+      <span class="sh-tag">★ Best overall strategy</span>
+      <span class="sh-tag">Earn while studying</span>
+      <span class="sh-tag">Low financial risk</span>
+    </div>
+  </div>
+
+  <!-- Step 0 -->
+  <div class="always-card">
+    <h3>⚠️ Step 0 — Do This First, Regardless of Path (Month 1–4, Non-negotiable)</h3>
+    <p>Runs in parallel with everything. Start before anything else.</p>
+    <div class="nodes-grid cols2">
+      <div class="steps-box"><h4>Spoken English Classes</h4><ul>
+        <li>Join 3–4 month spoken English batch (morning/evening)</li>
+        <li>Options: British Council, local institutes, IELTS prep centres</li>
+        <li>Cost: ₹3K–12K for full course</li>
+        <li>Why: Communication is the #1 interview filter. Fixes this early.</li>
+        <li>Daily: 30 min English news / YouTube / mirror practice</li>
+      </ul></div>
+      <div class="steps-box"><h4>Profile & AI Tools Setup (Month 1)</h4><ul>
+        <li>Create LinkedIn profile with professional photo</li>
+        <li>Free portfolio site: GitHub Pages or Notion</li>
+        <li>Set up ChatGPT Plus or use Claude.ai — learn to use AI in daily study</li>
+        <li>Use AI to help write cover letters, prep interview answers</li>
+        <li>Target: 100 relevant LinkedIn connections per month</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span>Choose Your Certification Track</span></div>
+
+  <div class="nodes-grid cols2">
+
+    <!-- DATA ANALYTICS -->
+    <div class="node-card nc-p2">
+      <h3>📊 Track A — Data Analytics ⭐ Top Pick</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹4–9 LPA after cert</span>
+        <span class="chip ch-time">4–6 months</span>
+        <span class="chip ch-cost">₹5K–25K</span>
+        <span class="chip ch-rec">★★★★★ Best for BBA + Python</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 7 months)</span>
+          <span class="success-pct pct-high">78%</span>
+        </div>
+        <div class="success-track"><div class="success-fill" style="width:78%"></div></div>
+        <div class="success-note">High. Google cert is globally recognized, BBA business context + data = rare combo, Python base = head start. Demand is strong across every industry. Success rises to 85%+ if she adds Power BI + builds 3 projects.</div>
+      </div>
+
+      <p class="node-desc">BBA gives business context that pure CS grads lack — she can explain what data means for business decisions. Python she already knows = major head start over most beginners.</p>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>BBA + data = rare, valued combination</li>
+          <li>Python base = already ahead of beginners</li>
+          <li>Roles in every industry sector</li>
+          <li>Scales: Analyst → Senior → Manager</li>
+          <li>AI tools make analysts MORE valuable, not less</li>
+          <li>Distance MBA compatible in parallel</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Entry salary at small companies can be ₹3–4L</li>
+          <li>Need 3 portfolio projects to stand out</li>
+          <li>SQL + Python + BI tool = multiple things to learn</li>
+          <li>Basic reporting roles being automated by AI</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge tl">✓ Low AI Threat</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:82%"></div></div>
+          <span class="ai-res-score">82 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>Threat</h5><ul>
+            <li>Basic chart-making and SQL queries can be AI-prompted</li>
+            <li>AutoML tools reduce need for manual model building</li>
+          </ul></div>
+          <div class="ai-col"><h5>Opportunity (BIG)</h5><ul>
+            <li>AI generates MORE data — needs MORE analysts to interpret it</li>
+            <li>"AI Analyst" = person who interprets AI model outputs</li>
+            <li>Companies need humans to validate AI-generated insights</li>
+            <li>Prompt-based analytics (ChatGPT + SQL) = new skill set</li>
+          </ul></div>
+        </div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">ChatGPT for SQL queries</span>
+          <span class="ai-tool-chip">Power BI Copilot</span>
+          <span class="ai-tool-chip">Julius AI</span>
+          <span class="ai-tool-chip">Pandas AI</span>
+          <span class="ai-tool-chip">Google Gemini in Sheets</span>
+        </div>
+      </div>
+
+      <div class="steps-box"><h4>Exact Roadmap</h4><ol>
+        <li><strong>Month 1–3:</strong> Google Data Analytics Professional Certificate — Coursera (free via financial aid or ₹3K/month). Covers SQL, spreadsheets, Tableau, R basics.</li>
+        <li><strong>Month 2–4:</strong> Microsoft Power BI — free desktop. YouTube: Chandoo Power BI series (free, excellent)</li>
+        <li><strong>Month 3–5:</strong> Python pandas + matplotlib — Kaggle free courses or Udemy (₹499 sale)</li>
+        <li><strong>Month 4–5:</strong> Build 3 projects: Sales Dashboard (Power BI), E-commerce Analysis (Python), HR Attrition (Excel + charts)</li>
+        <li><strong>Month 5:</strong> Learn to use ChatGPT for data analysis tasks — this is now a skill employers ask about</li>
+        <li><strong>Month 6:</strong> Start applying with portfolio link on LinkedIn</li>
+      </ol></div>
+
+      <div class="company-chips">
+        <span class="company-chip">Deloitte</span><span class="company-chip">EY</span><span class="company-chip">Accenture</span>
+        <span class="company-chip">Flipkart</span><span class="company-chip">Fractal Analytics</span><span class="company-chip">HDFC Bank</span>
+      </div>
+
+      <div class="outcome-box">
+        <strong>Expected outcome in 6–9 months</strong>
+        ₹4–7 LPA analyst role. After 2 years + distance MBA running: ₹9–15 LPA senior analyst / manager. This is the fastest AND most AI-resilient path for her profile.
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Job After 7 Months of Applying</h4>
+        <ol>
+          <li><span>Check first:</span> Is the problem resume, portfolio, or interview? Apply to 20 roles → track response rate. If &lt;10% callback → resume issue. If callbacks but no offer → interview issue (spoken English, confidence).</li>
+          <li><span>Month 8:</span> Add one more cert — Microsoft PL-300 (Power BI) certification is ₹3,500 and very specific to analyst roles. Adds credibility instantly.</li>
+          <li><span>Month 8:</span> Apply to smaller companies — analytics startups, D2C e-commerce firms, healthcare companies. Less competition than TCS/Deloitte track.</li>
+          <li><span>Month 8:</span> Apply for "MIS Executive" or "Reporting Analyst" roles — same skill set, lower competition, often stepping stone to proper analyst title.</li>
+          <li><span>Month 9:</span> Take one freelance analytics project on Upwork (even ₹2K–5K gig) — adds "client work" to resume, which breaks the freshers cycle.</li>
+          <li><span>Month 9:</span> Reach out directly to data team leads on LinkedIn — not HR, but actual analysts — asking for a 15-min coffee chat. Referrals bypass ATS.</li>
+        </ol>
+        <p class="pb-last">If 10 months with no offer — enroll in CDAC PG Diploma (C-CAT exam, ₹70K fee, 6 months). Government-backed, strong placement record. Her analytics prep counts as prep for C-CAT too.</p>
+      </div>
+    </div>
+
+    <!-- BA CERT -->
+    <div class="node-card nc-p2">
+      <h3>🎯 Track B — Business Analyst Certification</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹3.5–7 LPA</span>
+        <span class="chip ch-time">3–5 months</span>
+        <span class="chip ch-cost">₹8K–20K</span>
+        <span class="chip ch-rec">Easiest first job</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 6 months)</span>
+          <span class="success-pct pct-high">72%</span>
+        </div>
+        <div class="success-track"><div class="success-fill" style="width:72%"></div></div>
+        <div class="success-note">Good. Fastest route from BBA to IT employment. IIBA ECBA cert + case studies + SQL basics = strong enough to crack IT service companies. Chance rises to 80% if combined with Power BI.</div>
+      </div>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>Easiest role to get as BBA fresher</li>
+          <li>All IT companies have BA openings</li>
+          <li>No heavy coding required initially</li>
+          <li>Good stepping stone to Product Management</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Can feel repetitive without tech depth</li>
+          <li>Growth plateau without adding tech or MBA</li>
+          <li>AI tools automating basic BA tasks fast</li>
+          <li>Junior BA role = less exciting work initially</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge tm">⚠ Medium AI Threat</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:65%"></div></div>
+          <span class="ai-res-score">65 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>Threat</h5><ul>
+            <li>Notion AI / ChatGPT auto-generates BRDs & user stories</li>
+            <li>Basic documentation jobs reducing</li>
+          </ul></div>
+          <div class="ai-col"><h5>Opportunity</h5><ul>
+            <li>"AI Product Owner" — manage AI feature rollouts</li>
+            <li>BA who understands AI capabilities = premium hiring</li>
+            <li>AI implementation projects need BA bridge role</li>
+          </ul></div>
+        </div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">Notion AI</span>
+          <span class="ai-tool-chip">ChatGPT for user stories</span>
+          <span class="ai-tool-chip">Miro AI</span>
+          <span class="ai-tool-chip">Jira + AI plugins</span>
+        </div>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Job After 6 Months of Applying</h4>
+        <ol>
+          <li><span>Month 7:</span> Add SQL + Power BI (takes 3 weeks) — she becomes a "Technical BA" which is a different job category. Apply fresh with updated title.</li>
+          <li><span>Month 7:</span> Expand company types — IT staffing firms (Quess, TeamLease IT) hire BAs and place them at clients. Lower bar, builds experience fast.</li>
+          <li><span>Month 7:</span> Apply for "Business Development Executive" or "Pre-sales Analyst" at SaaS companies — BA skills translate directly, less competitive.</li>
+          <li><span>Month 8:</span> Internship route — 3-month stipend internship on Internshala specifically in BA/product roles at startups. High conversion to full-time.</li>
+          <li><span>Month 8:</span> Write a public case study on LinkedIn (step-by-step BA analysis of a real business) — attracts recruiters organically.</li>
+        </ol>
+        <p class="pb-last">If 9 months with no traction — she's 70% of the way to being a Data Analyst anyway. Add 4 weeks of Power BI + Python pandas, rebuild portfolio as "Data + BA" and reapply. This dual profile is stronger than pure BA.</p>
+      </div>
+    </div>
+
+    <!-- BOOTCAMP -->
+    <div class="node-card nc-p2">
+      <h3>🚀 Track C — Full-Stack Dev Bootcamp (ISA)</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹5–13 LPA after</span>
+        <span class="chip ch-time">6–9 months</span>
+        <span class="chip ch-cost">₹0 upfront (ISA)</span>
+        <span class="chip ch-rec">Highest salary ceiling</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 10 months)</span>
+          <span class="success-pct pct-high">68%</span>
+        </div>
+        <div class="success-track"><div class="success-fill" style="width:68%"></div></div>
+        <div class="success-note">Good but not guaranteed. ISA bootcamps with placement support raise success rate. Her coding base = strong head start vs batch. The market is competitive post-2023 — portfolio quality matters more than completion certificate.</div>
+      </div>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>Zero financial risk — ISA pays only after job</li>
+          <li>Structured curriculum + placement support</li>
+          <li>HTML + Python base = day-1 advantage</li>
+          <li>Highest salary ceiling in all cert tracks</li>
+          <li>AI tools make devs more productive = more valued</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Longest time before first job (6–9 months)</li>
+          <li>Intense pace — needs full-time dedication</li>
+          <li>ISA = 15–17% salary for 24+ months after job</li>
+          <li>Hard to run distance MBA simultaneously (workload)</li>
+          <li>Bootcamp job market competitive post-2023</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge tl">✓ Low Threat (if AI-literate)</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:78%"></div></div>
+          <span class="ai-res-score">78 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>Threat</h5><ul>
+            <li>GitHub Copilot writes boilerplate — junior tasks automated</li>
+            <li>Companies expect devs to do more with AI help</li>
+            <li>Entry-level hiring reduced at big IT firms</li>
+          </ul></div>
+          <div class="ai-col"><h5>Opportunity</h5><ul>
+            <li>Dev + AI tools = 3-5x productive = very valuable</li>
+            <li>Demand for AI feature builders is exploding</li>
+            <li>Python = #1 language for AI/ML workflows</li>
+            <li>LLM app builders are in hot demand right now</li>
+          </ul></div>
+        </div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">GitHub Copilot</span>
+          <span class="ai-tool-chip">Cursor IDE</span>
+          <span class="ai-tool-chip">v0.dev (UI generation)</span>
+          <span class="ai-tool-chip">LangChain</span>
+          <span class="ai-tool-chip">OpenAI API</span>
+        </div>
+      </div>
+
+      <div class="steps-box"><h4>Best ISA Bootcamps</h4><ul>
+        <li><strong>Masai School</strong> — Strongest placement, ISA model, Full-stack JS or Python</li>
+        <li><strong>Newton School</strong> — Good for non-CS grads, Delhi-based</li>
+        <li><strong>GUVI</strong> — Tata-group backed, Chennai/Hyderabad, affordable community</li>
+        <li><strong>AlmaBetter</strong> — Full-stack or Data Science, ISA model</li>
+      </ul></div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Placement After Bootcamp Graduation (10 months in)</h4>
+        <ol>
+          <li><span>First:</span> Contact bootcamp placement cell daily — most ISA schools have 6–12 month extended placement support. Use it aggressively. It's their financial incentive too.</li>
+          <li><span>Month 11:</span> Build one AI-integrated project (add ChatGPT API / OpenAI to an existing app). In 2026 this single line on resume changes interview outcomes.</li>
+          <li><span>Month 11:</span> Contribute to 2 open-source projects on GitHub — shows real collaboration skills, gets profile noticed by recruiters browsing GitHub.</li>
+          <li><span>Month 12:</span> Apply beyond IT service companies — banks, retail chains (Reliance, Tata), manufacturing companies all need in-house developers. Less competition there.</li>
+          <li><span>Month 12:</span> Start Upwork freelance simultaneously — one delivered project = real "client work" = breaks the fresher cycle. Even a ₹3K project counts.</li>
+          <li><span>Month 12:</span> Target remote international junior roles — Philippines, Eastern Europe bootcamp grads compete for the same remote jobs. She has the same cert.</li>
+        </ol>
+        <p class="pb-last">If 14 months with no job — pivot to Data Analytics track. Her bootcamp coding skills + Python + 4 weeks of Power BI = she qualifies for analyst roles immediately. Recalibrate, don't give up.</p>
+      </div>
+    </div>
+
+    <!-- CYBERSECURITY -->
+    <div class="node-card nc-p2">
+      <h3>🔒 Track D — Cybersecurity</h3>
+      <div class="chips">
+        <span class="chip ch-salary">₹5–11 LPA after cert</span>
+        <span class="chip ch-time">6–9 months</span>
+        <span class="chip ch-cost">₹15K–40K</span>
+        <span class="chip ch-warn">Harder from BBA</span>
+      </div>
+
+      <div class="success-wrap">
+        <div class="success-header">
+          <span class="success-label">Job Success Chance (within 10 months)</span>
+          <span class="success-pct pct-med">55%</span>
+        </div>
+        <div class="success-track"><div class="success-fill med" style="width:55%"></div></div>
+        <div class="success-note">Medium. High demand but explaining BBA → Security in interviews is harder. SOC Analyst roles are accessible but slow to progress. Success rises significantly if she passes CompTIA Security+ AND does 3 months of TryHackMe practice alongside.</div>
+      </div>
+
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>Massive demand shortage in India 2024–27</li>
+          <li>Less competition from BBA grads = unique</li>
+          <li>AI creating new attack vectors = more security needed</li>
+          <li>Government sector also hiring (CERT-In, NIC)</li>
+          <li>Global certs open international opportunities</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Needs strong networking fundamentals first</li>
+          <li>Longer prep before first job</li>
+          <li>Exam fees are expensive (₹18–22K for Security+)</li>
+          <li>BBA → Security is unconventional — hard to explain</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-header">
+          <span class="ai-box-title">🤖 AI Era Impact</span>
+          <span class="ai-threat-badge tl">✓ Very Low Threat — AI makes it BIGGER</span>
+        </div>
+        <div class="ai-resilience-row">
+          <span class="ai-res-label">AI Resilience</span>
+          <div class="ai-res-track"><div class="ai-res-fill" style="width:90%"></div></div>
+          <span class="ai-res-score">90 / 100</span>
+        </div>
+        <div class="ai-grid">
+          <div class="ai-col"><h5>AI Creates More Work</h5><ul>
+            <li>AI-generated malware and phishing = new threats</li>
+            <li>Prompt injection attacks on LLMs = new attack surface</li>
+            <li>Companies deploying AI need AI security reviews</li>
+            <li>SOC Level-1 alerts may be auto-triaged but analysis still human</li>
+          </ul></div>
+          <div class="ai-col"><h5>New AI Security Roles</h5><ul>
+            <li>"AI Red Teamer" — test AI systems for vulnerabilities</li>
+            <li>LLM Security Analyst — new and very high demand</li>
+            <li>AI Governance Analyst — compliance for AI systems</li>
+          </ul></div>
+        </div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">TryHackMe</span>
+          <span class="ai-tool-chip">HackTheBox</span>
+          <span class="ai-tool-chip">Wireshark</span>
+          <span class="ai-tool-chip">Splunk (SIEM)</span>
+        </div>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Job After 10 Months</h4>
+        <ol>
+          <li><span>Month 11:</span> Apply for IT Support / Helpdesk roles (Level 1 IT support) — this is the standard foot-in-the-door to IT sector. 6 months IT support → lateral move to security team is very common.</li>
+          <li><span>Month 11:</span> Government job boards — NIC, CERT-In, bank IT security (RBI, SBI, HDFC have internal security teams). Different portals than private sector (naukri.com misses these).</li>
+          <li><span>Month 11:</span> BPO companies with IT security vertical — Tata Elxsi, HCL security practice, Wipro Cybersecurity. They hire freshers as SOC analysts more readily than product companies.</li>
+          <li><span>Month 12:</span> TryHackMe "Top 1%" badge + HackTheBox profile — some companies directly hire from these leaderboards. Achieve a visible ranking.</li>
+          <li><span>Month 12:</span> Add CEH (Certified Ethical Hacker) study material — even without the exam, knowledge of CEH content expands scope. Apply for "ethical hacking intern" roles on Internshala.</li>
+        </ol>
+        <p class="pb-last">If 13 months with no role — security is a long game from BBA background. Take an IT Support job, build 6 months experience, then reapply for junior security analyst. This is actually the standard route even for CS grads at smaller companies.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Distance Masters -->
+  <div class="section-divider" style="margin-top:26px"><span>After Getting Job — Distance Masters While Earning</span></div>
+
+  <div class="node-card nc-p2">
+    <h3>🎓 Distance MBA / MCA While Working</h3>
+    <div class="chips">
+      <span class="chip ch-time">2 years parallel to job</span>
+      <span class="chip ch-cost">₹30K–2.5L total</span>
+      <span class="chip ch-rec">No entrance exam for most</span>
+    </div>
+
+    <div class="success-wrap">
+      <div class="success-header">
+        <span class="success-label">Success Chance (completing masters while working)</span>
+        <span class="success-pct pct-high">92%</span>
+      </div>
+      <div class="success-track"><div class="success-fill" style="width:92%"></div></div>
+      <div class="success-note">Very high. No entrance exam, flexible schedule, self-paced. Main risk is self-discipline. 92% who enroll complete it within 3 years. Biggest benefit: she earns while studying — zero financial risk.</div>
+    </div>
+
+    <div class="nodes-grid cols2" style="margin-top:4px">
+      <div class="steps-box"><h4>Distance MBA Options</h4><ul>
+        <li><strong>IGNOU MBA</strong> — ₹25K–35K | Govt university | UGC/AICTE | No entrance | Twice/year admission | Valid for govt jobs</li>
+        <li><strong>Manipal Online MBA</strong> — ₹1.5L–2.5L | NAAC A++ | Best brand in online MBA currently | Live + recorded</li>
+        <li><strong>Amity Online MBA</strong> — ₹1.2L–1.8L | UGC-DEB | NAAC A+ | Good corporate recognition</li>
+        <li><strong>SCDL (Symbiosis)</strong> — ₹45K–80K | Good brand but NOT AICTE approved — verify for your goal</li>
+        <li><strong>LPU Online</strong> — ₹80K–1.2L | NAAC A++ | Affordable mid-tier</li>
+      </ul></div>
+      <div class="steps-box"><h4>Distance MCA Options</h4><ul>
+        <li><strong>IGNOU MCA</strong> — ₹40K–55K | Govt university | BBA eligible (check math) | Best value</li>
+        <li><strong>Amity Online MCA</strong> — ₹1.2L–1.5L | Good brand | Flexible</li>
+        <li><strong>SMU (Sikkim Manipal)</strong> — ₹60K–90K | Good for working professionals</li>
+        <li><strong>Picks:</strong> Data/BA job → Manipal Online MBA. Dev job → IGNOU MCA. Budget pick → IGNOU for both.</li>
+      </ul></div>
+    </div>
+
+    <div class="ai-box">
+      <div class="ai-box-header">
+        <span class="ai-box-title">🤖 AI Era Tip for Distance MBA</span>
+        <span class="ai-threat-badge tl">✓ AI Makes It Easier to Complete</span>
+      </div>
+      <div class="ai-grid">
+        <div class="ai-col"><h5>Use AI to study faster</h5><ul>
+          <li>ChatGPT for summarizing textbook chapters</li>
+          <li>AI for writing assignments (understand before submitting)</li>
+          <li>YouTube AI-explained lectures for hard topics</li>
+        </ul></div>
+        <div class="ai-col"><h5>Add AI electives if available</h5><ul>
+          <li>Choose MBA specialization: Business Analytics or IT Management</li>
+          <li>These align with AI era job market</li>
+          <li>Distance MBA + 2 yrs experience + AI skills = very strong profile</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="pc-row">
+      <div class="pros-box"><h4>Pros</h4><ul>
+        <li>Earn salary WHILE completing masters</li>
+        <li>No entrance exam stress</li>
+        <li>2 years experience + masters = stronger than fresh MBA from Tier-2</li>
+        <li>Self-funded — no family burden</li>
+      </ul></div>
+      <div class="cons-box"><h4>Cons</h4><ul>
+        <li>Lower brand than campus MBA</li>
+        <li>Less alumni network / peer connections</li>
+        <li>Some govt jobs still need AICTE-approved — verify</li>
+        <li>Needs self-discipline — job + study is tiring</li>
+      </ul></div>
+    </div>
+
+    <div class="plan-b">
+      <h4>🔄 If She Drops Out or Falls Behind in Distance MBA</h4>
+      <ol>
+        <li><span>If falling behind:</span> Switch from regular to lateral admission — IGNOU allows you to re-enroll in later semesters if you miss one. Flexibility is built in.</li>
+        <li><span>If job is too demanding:</span> Reduce course load — most distance programs allow you to take 1 subject per semester instead of 3-4. It takes longer (3–4 years) but she completes it.</li>
+        <li><span>If completely dropping out:</span> Don't. A partial distance MBA has near-zero value. Either complete it slowly or switch to a shorter PG Certificate (PGDM, Diploma) which takes 1 year instead of 2.</li>
+        <li><span>Alternative:</span> If she grows at the job rapidly and doesn't need the degree — pause enrollment (most allow this) and resume when career levels off. Many do this.</li>
+      </ol>
+      <p class="pb-last">If distance MBA isn't working and she wants campus MBA — she now has 1–2 years experience, which qualifies her for "working professional" MBA quota at many tier-2 colleges. Experience-based admission, easier than fresher quota.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ PATH 3 ══════════ -->
+<div class="path-section" id="path3">
+  <div class="section-header sh-p3">
+    <div class="sh-left">
+      <h2>🎓 Path 3 — Entrance Exam → Better College</h2>
+      <p>Prepare for MBA/MCA entrance exams after graduation. Get into a good college for campus placement. 1 year prep + 2 year degree.</p>
+    </div>
+    <div class="sh-tags">
+      <span class="sh-tag">3 years before first job</span>
+      <span class="sh-tag">Higher brand — IF good college</span>
+      <span class="sh-tag">Uncertain exam outcome</span>
+    </div>
+  </div>
+
+  <div class="always-card" style="border-color:#a78bfa;background:#1a0f2e;">
+    <h3 style="color:#c4b5fd">Step 0 — Same as Path 2 (Month 1–4)</h3>
+    <p style="color:#7c3aed">Spoken English + LinkedIn + AI tools setup. These are universal first steps for any path she chooses.</p>
+  </div>
+
+  <!-- OVERALL SUCCESS for Path 3 -->
+  <div class="node-card nc-p3" style="margin-bottom:20px">
+    <h3>⚖️ Path 3 — Overall Success Probability</h3>
+    <div class="success-wrap">
+      <div class="success-header">
+        <span class="success-label">Chance of getting into a GOOD college (worth going for)</span>
+        <span class="success-pct pct-med">40%</span>
+      </div>
+      <div class="success-track"><div class="success-fill med" style="width:40%"></div></div>
+      <div class="success-note">Medium. "Good college" = SIBM, NMIMS, KJ Somaiya, SIMSREE level — these genuinely change career outcomes. If she only gets a Tier-3 MBA college, Path 2 is better. Recommended: appear for CMAT + SNAP + NMAT together. If 90+ percentile in any → go for it. If below 80 in all → execute Path 2.</div>
+    </div>
+
+    <div class="ai-box">
+      <div class="ai-box-header">
+        <span class="ai-box-title">🤖 AI Era — MBA in 2026 context</span>
+        <span class="ai-threat-badge tl">✓ MBA Still Valuable — IF from a Good College</span>
+      </div>
+      <div class="ai-resilience-row">
+        <span class="ai-res-label">AI Resilience (Good College MBA)</span>
+        <div class="ai-res-track"><div class="ai-res-fill" style="width:72%"></div></div>
+        <span class="ai-res-score">72 / 100</span>
+      </div>
+      <div class="ai-grid">
+        <div class="ai-col"><h5>AI is changing MBA value</h5><ul>
+          <li>MBA from a Tier-3 college is being devalued by AI faster than top MBA</li>
+          <li>AI tools doing what junior managers used to do</li>
+          <li>Campus placements at mediocre colleges declining since 2024</li>
+        </ul></div>
+        <div class="ai-col"><h5>Top MBA still strong</h5><ul>
+          <li>SIBM / NMIMS / KJ Somaiya graduates still in strong demand</li>
+          <li>"AI + MBA" candidates = premium salary premium</li>
+          <li>Choose MBA specialization: Business Analytics or Digital Transformation</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span>MBA Entrance Exams — Detailed Analysis</span></div>
+  <div class="exam-grid">
+
+    <!-- CAT -->
+    <div class="exam-card">
+      <h3>CAT</h3>
+      <div class="exam-full">Common Admission Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div>
+        <span class="diff-label">Very Hard (5/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 85+ percentile</span><span class="success-pct pct-low" style="font-size:.9rem">22%</span></div>
+        <div class="success-track"><div class="success-fill low" style="width:22%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>IIMs (rotational)</td></tr>
+        <tr><td>When</td><td>November (Reg: Aug–Sep)</td></tr>
+        <tr><td>Prep time needed</td><td>8–12 months minimum</td></tr>
+        <tr><td>Sections</td><td>VARC, DILR, QA (66 questions, 2 hours)</td></tr>
+        <tr><td>For good college</td><td>85+ percentile (private Tier-1); 95+ (IIMs)</td></tr>
+        <tr><td>Top colleges</td><td>IIM A/B/C, FMS Delhi, MDI Gurgaon, JBIMS, SP Jain, TAPMI, FORE, KJ Somaiya</td></tr>
+        <tr><td>Prep cost</td><td>₹2K–5K (self) or ₹15K–40K (coaching)</td></tr>
+      </table>
+      <div class="realistic-hard">
+        <strong>Honest assessment:</strong> Hardest exam. QA section is math-heavy — challenging for BBA. With 10–12 months serious prep: 75–85 percentile realistic → TAPMI, FORE, KJ Somaiya accessible. IIMs are a stretch. Attempt alongside CMAT/SNAP, not as sole strategy.
+      </div>
+      <div class="ai-box" style="padding:9px">
+        <div class="ai-box-title" style="font-size:.65rem">🤖 AI in CAT Prep</div>
+        <div style="font-size:.67rem;color:#c7d2fe;margin-top:4px">Use ChatGPT to explain QA concepts, Khan Academy AI tutoring for weak areas. AI can generate practice problems in her weak sections. Saves coaching fees.</div>
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If CAT score &lt; 75 percentile</strong>
+        <ul>
+          <li>Don't join any college at that score — not worth 2 years + fees</li>
+          <li>Check if CMAT/NMAT scores (same prep cycle) are above target → join those instead</li>
+          <li>If all below target: immediately execute Path 2 (Data Analytics cert). You can retry CAT next November while working — working professionals have a separate quota at many colleges</li>
+        </ul>
+        <span class="pb-all-fail">All exams failed → Start Path 2 cert NOW. The year of prep sharpened quant + verbal skills which directly help in analyst/BA interviews.</span>
+      </div>
+    </div>
+
+    <!-- CMAT -->
+    <div class="exam-card">
+      <h3>CMAT ⭐</h3>
+      <div class="exam-full">Common Management Admission Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star"></div><div class="diff-star"></div>
+        <span class="diff-label">Moderate (3/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 90+ percentile</span><span class="success-pct pct-med" style="font-size:.9rem">48%</span></div>
+        <div class="success-track"><div class="success-fill med" style="width:48%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>NTA</td></tr>
+        <tr><td>When</td><td>January–February (Reg: Nov–Dec)</td></tr>
+        <tr><td>Prep time needed</td><td>3–5 months</td></tr>
+        <tr><td>Sections</td><td>Quant, Logical Reasoning, Language, General Awareness, Innovation (100 Q, 3 hrs)</td></tr>
+        <tr><td>For good college</td><td>90+ percentile for top picks; 80+ for solid options</td></tr>
+        <tr><td>Top colleges</td><td>JBIMS Mumbai (domicile), SIMSREE, KJ Somaiya, PUMBA, Welingkar, IESMCRC</td></tr>
+        <tr><td>BBA advantage</td><td>Language + GK sections suit BBA grads well</td></tr>
+      </table>
+      <div class="realistic-good">
+        <strong>Best exam for Path 3.</strong> Moderate difficulty. BBA suits Language + GK sections. With 4–5 months prep: 85–92 percentile achievable. SIMSREE / KJ Somaiya / Welingkar = solid colleges with ₹8–14 LPA placements. Strongly recommend targeting this.
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If CMAT score &lt; 80 percentile</strong>
+        <ul>
+          <li>80–85 → check Welingkar, IESMCRC — may still be accessible; evaluate placement stats honestly</li>
+          <li>Below 80 → do NOT join a tier-3 MBA; worse than distance MBA + experience</li>
+          <li>Retry CMAT next January while doing Path 2 cert + job. "1 year experience" applicants get extra weightage at some colleges</li>
+        </ul>
+        <span class="pb-all-fail">Below 70 → abandon Path 3 this cycle. Start Path 2 immediately. CMAT prep (language, quant, GK) maps directly to analyst interviews — the year wasn't wasted.</span>
+      </div>
+    </div>
+
+    <!-- MAT -->
+    <div class="exam-card">
+      <h3>MAT</h3>
+      <div class="exam-full">Management Aptitude Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star"></div><div class="diff-star"></div><div class="diff-star"></div>
+        <span class="diff-label">Easy-Moderate (2/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 600+ score</span><span class="success-pct pct-high" style="font-size:.9rem">72%</span></div>
+        <div class="success-track"><div class="success-fill" style="width:72%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>AIMA</td></tr>
+        <tr><td>When</td><td>4 times/year: Feb, May, Sep, Dec</td></tr>
+        <tr><td>Prep time needed</td><td>1–3 months</td></tr>
+        <tr><td>Sections</td><td>Language, Math, Data Analysis, Critical Reasoning, Indian & Global Environment (200 Q, 2.5 hrs)</td></tr>
+        <tr><td>For good college</td><td>600+ composite; 700+ for better colleges</td></tr>
+        <tr><td>Colleges</td><td>Alliance, Christ, Amity, LBSIM, BIMTECH, Jaipuria (800+ colleges accept MAT)</td></tr>
+      </table>
+      <div class="realistic-medium">
+        <strong>Best as safety net.</strong> Can appear 4 times/year. High pass chance. But colleges accessible with MAT are mostly Tier-2 — in AI era, these colleges' placement records are declining. Use as backup alongside CMAT. Do not make MAT colleges your primary goal.
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If MAT score &lt; 600</strong>
+        <ul>
+          <li>Retake MAT in the next cycle (2–3 months away) — it's offered 4 times/year. If still below 600 after 2 attempts, the focus/prep method is wrong</li>
+          <li>MAT is the easiest major MBA exam — if struggling here, Path 2 cert is a better use of energy than another year of exam prep</li>
+          <li>600–700 but only Tier-3 colleges available → Path 2 + distance MBA is strictly better. Don't join a weak college just to have "MBA on resume"</li>
+        </ul>
+        <span class="pb-all-fail">MAT failed twice → stop exam prep entirely. Execute Path 2. Come back to MBA via working-professional quota after 2 years of job experience.</span>
+      </div>
+    </div>
+
+    <!-- XAT -->
+    <div class="exam-card">
+      <h3>XAT</h3>
+      <div class="exam-full">Xavier Aptitude Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div>
+        <span class="diff-label">Very Hard (5/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 80+ percentile</span><span class="success-pct pct-low" style="font-size:.9rem">30%</span></div>
+        <div class="success-track"><div class="success-fill low" style="width:30%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>XLRI Jamshedpur</td></tr>
+        <tr><td>When</td><td>January (Reg: Aug–Nov)</td></tr>
+        <tr><td>Prep time needed</td><td>6–9 months</td></tr>
+        <tr><td>Sections</td><td>Verbal + Logical, Decision Making (unique!), QA, GK (3hrs 10min)</td></tr>
+        <tr><td>For good college</td><td>90+ for XLRI; 75–80 for XIM/XIMB</td></tr>
+        <tr><td>Unique aspect</td><td>Decision Making section is XAT-specific — prepare separately</td></tr>
+      </table>
+      <div class="realistic-medium">
+        <strong>Attempt alongside CAT if she's already prepping.</strong> XIM Bhubaneswar and XIMB are great colleges accessible at 75–80 percentile. Not a primary target — too risky as standalone exam.
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If XAT score &lt; 75 percentile</strong>
+        <ul>
+          <li>Check CMAT and NMAT results first — those are happening at the same time. XAT is a bonus attempt, not primary</li>
+          <li>75–80 percentile → XIM Bhubaneswar, XIMB, XIME may still be accessible — evaluate placement records</li>
+          <li>Decision Making section unique to XAT — practice it specifically if retrying next year</li>
+        </ul>
+        <span class="pb-all-fail">XAT failed + CAT low → assess CMAT/SNAP/NMAT results. If none give a good college → Path 2 immediately. XAT alone is never worth another full year of prep.</span>
+      </div>
+    </div>
+
+    <!-- SNAP -->
+    <div class="exam-card">
+      <h3>SNAP ⭐</h3>
+      <div class="exam-full">Symbiosis National Aptitude Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star"></div><div class="diff-star"></div>
+        <span class="diff-label">Moderate (3/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 85+ percentile</span><span class="success-pct pct-med" style="font-size:.9rem">42%</span></div>
+        <div class="success-track"><div class="success-fill med" style="width:42%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>Symbiosis International University</td></tr>
+        <tr><td>When</td><td>December (3 attempts same cycle)</td></tr>
+        <tr><td>Prep time needed</td><td>3–5 months</td></tr>
+        <tr><td>Sections</td><td>General English, Quant-DI-DS, Analytical & Logical (60 min, fast-paced)</td></tr>
+        <tr><td>For good college</td><td>95+ for SIBM Pune; 85+ for SIIB/SCMHRD</td></tr>
+        <tr><td>Special</td><td>3 attempts allowed — best score counts!</td></tr>
+      </table>
+      <div class="realistic-good">
+        <strong>Strong 2nd choice after CMAT.</strong> 3 attempts = flexible. SIBM Pune is top-30 with ₹10–16 LPA median. Even SIIB / SCMHRD are excellent Pune colleges. Strongly recommend attempting alongside CMAT.
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If SNAP score &lt; 85 percentile (all 3 attempts)</strong>
+        <ul>
+          <li>85–90 → SIIB Pune, SCMHRD, SITM still accessible — evaluate each college's placement data specifically</li>
+          <li>Below 85 in all 3 attempts → Symbiosis is out for this year. Check CMAT/NMAT scores which were happening in parallel</li>
+          <li>Short exam (60 min) means practice speed specifically — untimed practice won't help SNAP. Time yourself strictly during prep</li>
+        </ul>
+        <span class="pb-all-fail">SNAP below 75 in all 3 → redirect to CMAT outcome. If CMAT also weak → execute Path 2 immediately. SNAP + CMAT prep overlaps well with analyst interview prep — use those skills now.</span>
+      </div>
+    </div>
+
+    <!-- NMAT -->
+    <div class="exam-card">
+      <h3>NMAT ⭐</h3>
+      <div class="exam-full">NMIMS Management Aptitude Test</div>
+      <div class="diff-bar">
+        <div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star filled"></div><div class="diff-star"></div><div class="diff-star"></div>
+        <span class="diff-label">Moderate (3/5)</span>
+      </div>
+      <div class="success-wrap" style="padding:9px 11px">
+        <div class="success-header"><span class="success-label">Her chance: 200+ score</span><span class="success-pct pct-med" style="font-size:.9rem">52%</span></div>
+        <div class="success-track"><div class="success-fill med" style="width:52%"></div></div>
+      </div>
+      <table class="exam-table">
+        <tr><td>Conducted by</td><td>GMAC (GMAT body)</td></tr>
+        <tr><td>When</td><td>Oct–Dec (3 attempts, best counts)</td></tr>
+        <tr><td>Prep time needed</td><td>3–5 months</td></tr>
+        <tr><td>Sections</td><td>Language Skills, Quantitative, Logical Reasoning (108 Q, 2 hrs)</td></tr>
+        <tr><td>For good college</td><td>215+ for NMIMS Mumbai; 200+ for other NMIMS</td></tr>
+        <tr><td>Special</td><td>NO NEGATIVE MARKING! 3 attempts allowed.</td></tr>
+      </table>
+      <div class="realistic-good">
+        <strong>Student-friendly format.</strong> No negative marking = more forgiving. NMIMS Mumbai is top-20 B-school with ₹12–20 LPA median. With 4 months prep: 200–215 achievable. Strongly recommend CMAT + SNAP + NMAT together — these 3 exams form the best combo for her.
+      </div>
+      <div class="plan-b-compact">
+        <strong>🔄 If NMAT score &lt; 190 (all 3 attempts)</strong>
+        <ul>
+          <li>190–200 → NMIMS Bangalore / Hyderabad campuses may still be accessible — placement is slightly lower than Mumbai but still solid</li>
+          <li>Use all 3 attempts — schedule them 3–4 weeks apart to improve each time. Review wrong answers between attempts</li>
+          <li>Below 180 in all 3 → NMIMS is out. Cross-reference with CMAT/SNAP scores happening in the same window</li>
+        </ul>
+        <span class="pb-all-fail">NMAT + CMAT + SNAP all weak → clear signal: exam route is not working this cycle. Start Path 2 Data Analytics cert. Attempt exams again next year from a position of 1 year work experience. Working professional quota is easier to crack.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MCA Exams -->
+  <div class="section-divider" style="margin-top:24px"><span>MCA Entrance (Alternative — if she prefers pure tech over management)</span></div>
+  <div class="nodes-grid cols2">
+    <div class="node-card nc-p3">
+      <h3>💻 NIMCET — NIT MCA Entrance</h3>
+      <div class="chips"><span class="chip ch-diff">Difficulty: High (4/5)</span><span class="chip ch-time">4–6 months prep</span><span class="chip ch-warn">Math eligibility needed</span></div>
+      <div class="success-wrap">
+        <div class="success-header"><span class="success-label">Her chance (clearing NIMCET)</span><span class="success-pct pct-low" style="font-size:.9rem">18%</span></div>
+        <div class="success-track"><div class="success-fill low" style="width:18%"></div></div>
+        <div class="success-note">Low. BBA eligibility is uncertain at most NITs (many require Math in qualifying degree). Very math-heavy. CS/BCA students dominate. Must verify eligibility before even starting prep.</div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-box-header"><span class="ai-box-title">🤖 AI Era — MCA value</span><span class="ai-threat-badge tl">✓ MCA from NIT still valued</span></div>
+        <div style="font-size:.68rem;color:#c7d2fe;margin-top:6px">NIT MCA placements remain strong (₹7–15 LPA). Tech degree from NIT + AI coding tools = very competitive profile. Worth attempting IF eligible.</div>
+      </div>
+    </div>
+    <div class="node-card nc-p3">
+      <h3>📋 State MCA Exams (MAH MCA CET, TANCET, PGCET)</h3>
+      <div class="chips"><span class="chip ch-diff">Difficulty: Moderate (3/5)</span><span class="chip ch-time">2–4 months</span><span class="chip ch-rec">BBA eligible in most states</span></div>
+      <div class="success-wrap">
+        <div class="success-header"><span class="success-label">Her chance: getting into a decent state college</span><span class="success-pct pct-high" style="font-size:.9rem">62%</span></div>
+        <div class="success-track"><div class="success-fill" style="width:62%"></div></div>
+        <div class="success-note">Good. More accessible than NIMCET. BBA eligible in most states. Maharashtra MAH MCA CET is the best — Pune colleges have great placement in tech industry.</div>
+      </div>
+      <div class="steps-box"><h4>Key Exams</h4><ul>
+        <li><strong>MAH MCA CET</strong> (Maharashtra) — Best if she's in Maharashtra</li>
+        <li><strong>TANCET</strong> (Tamil Nadu) — For TN state colleges, moderate difficulty</li>
+        <li><strong>PGCET</strong> (Karnataka) — Bangalore colleges = great for tech jobs</li>
+        <li><strong>Private Universities</strong> — SRM, VIT, Amity, Manipal (campus) — merit/interview based</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- Recommended exam strategy -->
+  <div class="rec-banner" style="margin-top:20px">
+    <strong>★ Recommended Exam Strategy (if she chooses Path 3):</strong><br>
+    Appear for <strong>CMAT (Jan) + NMAT (Oct–Dec) + SNAP (Dec)</strong> — all in the same prep cycle (Oct–Feb). These 3 together require 4–5 months of prep. If she scores <strong>90+ percentile in any one</strong> of these → go for it (SIBM / NMIMS / SIMSREE level = genuinely good colleges). If all 3 are below 80 percentile → don't waste another year. Shift immediately to Path 2. Never commit to Path 3 without a clear target college in mind.
+  </div>
+</div>
+
+<!-- ══════════ PATH 4 ══════════ -->
+<div class="path-section" id="path4">
+  <div class="section-header sh-p4">
+    <div class="sh-left">
+      <h2>💼 Path 4 — Freelance / Entrepreneurship</h2>
+      <p>Best run as parallel income alongside any other path. AI tools have transformed what a solo freelancer can deliver.</p>
+    </div>
+    <div class="sh-tags">
+      <span class="sh-tag">Run in parallel</span>
+      <span class="sh-tag">AI tools = 5x output</span>
+      <span class="sh-tag">Variable income</span>
+    </div>
+  </div>
+
+  <div class="nodes-grid cols3">
+
+    <div class="node-card nc-p4">
+      <h3>🌐 Freelance Web Developer</h3>
+      <div class="chips"><span class="chip ch-salary">₹0 → ₹40K+/month</span><span class="chip ch-time">6–12 months stable</span><span class="chip ch-cost">₹0</span></div>
+      <div class="success-wrap">
+        <div class="success-header"><span class="success-label">Stable ₹20K+/month in 12 months</span><span class="success-pct pct-med" style="font-size:.9rem">42%</span></div>
+        <div class="success-track"><div class="success-fill med" style="width:42%"></div></div>
+        <div class="success-note">Medium. Income is irregular first 6 months. AI tools like v0.dev now let her build sites 5x faster — she can undercut others on price while maintaining quality. Success rate rises to 60% if she combines with digital marketing to find her own clients.</div>
+      </div>
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>HTML base = can start today</li>
+          <li>AI tools = deliver faster, earn more</li>
+          <li>No investment needed</li>
+          <li>Builds portfolio naturally</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>Irregular income for 6–12 months</li>
+          <li>Fiverr has global competition + AI-made sites</li>
+          <li>Need 3-month savings buffer</li>
+        </ul></div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-box-header"><span class="ai-box-title">🤖 AI Changes Everything Here</span><span class="ai-threat-badge tm">Medium Threat + Big Opportunity</span></div>
+        <div class="ai-resilience-row"><span class="ai-res-label">AI Resilience</span><div class="ai-res-track"><div class="ai-res-fill" style="width:60%"></div></div><span class="ai-res-score">60 / 100</span></div>
+        <div style="font-size:.68rem;color:#c7d2fe;margin-top:6px">
+          AI tools (v0.dev, Cursor, GitHub Copilot) let her build a site in hours that used to take days. She can take 3x more clients at same quality. BUT: basic HTML/CSS gigs are being replaced by AI site builders (Wix AI, Framer AI). She must go up the value chain: custom React apps, API integrations, AI-integrated features.
+        </div>
+        <div class="ai-tools" style="margin-top:6px">
+          <span class="ai-tool-chip">v0.dev</span><span class="ai-tool-chip">GitHub Copilot</span><span class="ai-tool-chip">Cursor IDE</span><span class="ai-tool-chip">Bolt.new</span>
+        </div>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Stable Income After 6 Months</h4>
+        <ol>
+          <li><span>Month 7:</span> Narrow the niche — "web developer" is too generic on Fiverr. Become "Shopify expert for fashion brands" or "WordPress for clinics and doctors." Niche = lower competition + higher prices.</li>
+          <li><span>Month 7:</span> Shift from Fiverr to direct client outreach — WhatsApp local business owners (restaurants, coaching institutes, clinics) with a simple pitch and a demo site built for their type of business.</li>
+          <li><span>Month 8:</span> Offer one free site build to a local business in exchange for a video testimonial and Google review. Two testimonials = client conversion rate doubles.</li>
+          <li><span>Month 8:</span> Try Contra or Toptal (harder) for better-paying international clients. Also try PeoplePerHour and Codementor for coding help gigs.</li>
+        </ol>
+        <p class="pb-last">If 12 months with inconsistent income — get a regular job (Path 1 BA or analyst) and freelance on weekends. This is the standard route. Full-time freelance works after 2–3 years of client base buildup, not from day 1.</p>
+      </div>
+    </div>
+
+    <div class="node-card nc-p4">
+      <h3>📣 Digital Marketing Freelance</h3>
+      <div class="chips"><span class="chip ch-salary">₹15K–60K/month</span><span class="chip ch-time">3 months to first client</span><span class="chip ch-cost">₹5K–10K</span><span class="chip ch-rec">Best BBA fit</span></div>
+      <div class="success-wrap">
+        <div class="success-header"><span class="success-label">Stable ₹20K+/month in 12 months</span><span class="success-pct pct-med" style="font-size:.9rem">50%</span></div>
+        <div class="success-track"><div class="success-fill med" style="width:50%"></div></div>
+        <div class="success-note">Medium-good. BBA marketing knowledge is a real advantage. Local businesses are easy first clients. AI tools for content creation mean she can serve more clients per month. Biggest challenge is client acquisition initially.</div>
+      </div>
+      <div class="pc-row">
+        <div class="pros-box"><h4>Pros</h4><ul>
+          <li>BBA marketing = direct relevance</li>
+          <li>High local business demand</li>
+          <li>All certs are free (Google, Meta)</li>
+          <li>Scales into an agency easily</li>
+        </ul></div>
+        <div class="cons-box"><h4>Cons</h4><ul>
+          <li>AI writing tools commoditizing content work</li>
+          <li>Client management can be stressful</li>
+          <li>Results take time (SEO = 3–6 months)</li>
+        </ul></div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-box-header"><span class="ai-box-title">🤖 AI = Massive Force Multiplier Here</span><span class="ai-threat-badge tl">✓ Low Threat if AI-literate</span></div>
+        <div class="ai-resilience-row"><span class="ai-res-label">AI Resilience</span><div class="ai-res-track"><div class="ai-res-fill" style="width:72%"></div></div><span class="ai-res-score">72 / 100</span></div>
+        <div style="font-size:.68rem;color:#c7d2fe;margin-top:6px">
+          AI handles content drafts, ad copy, SEO analysis, competitor research in minutes. She can serve 5 clients with the effort that used to take for 1. Offer "AI-powered marketing" as a premium service — clients will pay more for it.
+        </div>
+        <div class="ai-tools" style="margin-top:6px">
+          <span class="ai-tool-chip">ChatGPT for copy</span><span class="ai-tool-chip">Midjourney/DALL-E</span><span class="ai-tool-chip">Canva AI</span>
+          <span class="ai-tool-chip">SEMrush AI</span><span class="ai-tool-chip">Jasper.ai</span>
+        </div>
+      </div>
+
+      <div class="plan-b">
+        <h4>🔄 If No Clients After 3 Months</h4>
+        <ol>
+          <li><span>Immediate:</span> Offer FREE digital marketing for 2 local businesses (1 month) — get measurable results (traffic +X%, leads generated Y). Use these as case studies. Real numbers close clients.</li>
+          <li><span>Month 4:</span> Direct outreach on WhatsApp/Instagram DMs to small local businesses — restaurants, salons, coaching institutes, doctors. Most have zero digital presence. One DM with a before/after example gets replies.</li>
+          <li><span>Month 4:</span> Post one results case study on LinkedIn every week — "I helped [type of business] get X results in 30 days using [tool]." Attracts inbound enquiries.</li>
+          <li><span>Month 5:</span> Join Facebook groups — "Digital Marketing Freelancers India", "Indian Entrepreneurs" — clients actively post work here.</li>
+        </ol>
+        <p class="pb-last">If 6 months with zero clients — take a digital marketing job at an agency (₹2.5–4 LPA, easily available). Learn while earning a salary, build a portfolio of real results on company projects, then go freelance in year 2 with real case studies.</p>
+      </div>
+    </div>
+
+    <div class="node-card nc-p4">
+      <h3>🛒 E-commerce / D2C Brand</h3>
+      <div class="chips"><span class="chip ch-salary">Variable ₹5K–50K+</span><span class="chip ch-time">3–6 months</span><span class="chip ch-cost">₹10K–50K capital</span><span class="chip ch-warn">Higher risk</span></div>
+      <div class="success-wrap">
+        <div class="success-header"><span class="success-label">Profitable within 12 months</span><span class="success-pct pct-low" style="font-size:.9rem">35%</span></div>
+        <div class="success-track"><div class="success-fill low" style="width:35%"></div></div>
+        <div class="success-note">Lower probability. E-commerce requires capital, logistics management, and constant attention. Meesho dropship model reduces risk. Best treated as a side experiment, not primary income in year 1.</div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-box-header"><span class="ai-box-title">🤖 AI in E-commerce</span><span class="ai-threat-badge tl">✓ AI Helps a Lot Here</span></div>
+        <div style="font-size:.68rem;color:#c7d2fe;margin-top:6px">
+          AI can handle product descriptions, customer emails, ad creative, and pricing analysis. ChatGPT + Canva AI = she can run a store with minimal human effort. AI-powered product research tools (Jungle Scout AI, Helium10) help find profitable niches fast.
+        </div>
+        <div class="ai-tools" style="margin-top:6px">
+          <span class="ai-tool-chip">ChatGPT for listings</span><span class="ai-tool-chip">Canva AI</span><span class="ai-tool-chip">Tidio (AI chatbot)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ AI ERA CAREERS ══════════ -->
+<div class="ai-era-section" id="aiera">
+  <div class="ai-era-inner">
+    <h2>🤖 AI Era — New Career Paths (2026 onwards)</h2>
+    <p class="ai-sub">These roles didn't exist 3 years ago. She has a BBA + basic coding + 1 year to skill up — perfect timing to enter these fields early.</p>
+
+    <div class="ai-career-grid">
+
+      <div class="ai-career-card acc-hot">
+        <h3>🔥 LLM Application Developer</h3>
+        <div class="chips"><span class="chip ch-salary">₹8–20 LPA</span><span class="chip ch-time">4–6 months to get ready</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:92%"></div></div><span style="font-size:.65rem;color:#f9a8d4">Very High</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Job success (6 months prep)</span><span class="success-pct pct-high" style="font-size:.85rem">65%</span></div>
+          <div class="success-track"><div class="success-fill" style="width:65%"></div></div>
+        </div>
+        <p class="node-desc">Build apps that use ChatGPT/Claude/Gemini APIs. Chatbots, document Q&A, AI assistants. Python (she has it) + OpenAI API = can build real products. This is the hottest role of 2026.</p>
+        <div class="steps-box"><h4>How to start</h4><ul>
+          <li>Python she already knows = base is done</li>
+          <li>Learn: OpenAI API basics (free docs), LangChain (free), FastAPI</li>
+          <li>Build: AI chatbot for a local business, PDF Q&A tool, voice assistant</li>
+          <li>Host on: Hugging Face Spaces (free) or Vercel</li>
+          <li>Portfolio on GitHub → apply at AI startups</li>
+        </ul></div>
+        <div class="ai-tools">
+          <span class="ai-tool-chip">OpenAI API</span><span class="ai-tool-chip">LangChain</span><span class="ai-tool-chip">Anthropic Claude API</span>
+          <span class="ai-tool-chip">Streamlit</span><span class="ai-tool-chip">Hugging Face</span>
+        </div>
+      </div>
+
+      <div class="ai-career-card acc-hot">
+        <h3>🔥 AI Data Analyst</h3>
+        <div class="chips"><span class="chip ch-salary">₹6–15 LPA</span><span class="chip ch-time">3–5 months</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:88%"></div></div><span style="font-size:.65rem;color:#f9a8d4">Very High</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Job success (5 months prep)</span><span class="success-pct pct-high" style="font-size:.85rem">72%</span></div>
+          <div class="success-track"><div class="success-fill" style="width:72%"></div></div>
+        </div>
+        <p class="node-desc">Traditional data analyst who also uses AI tools for analysis. She does Google Data Analytics cert + learns AI-powered BI tools. BBA + Python + AI tools = extremely strong combo. This is the evolution of the traditional analyst role.</p>
+        <div class="steps-box"><h4>What this adds to Track A</h4><ul>
+          <li>Learn: PandasAI, Julius AI, ChatCSV for AI-assisted analysis</li>
+          <li>Power BI Copilot — AI-generated insights from dashboards</li>
+          <li>Python: use ChatGPT to write data cleaning code faster</li>
+          <li>Become the analyst who trains others to use AI tools</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-career-card">
+        <h3>⚡ Prompt Engineer / AI Trainer</h3>
+        <div class="chips"><span class="chip ch-salary">₹5–12 LPA</span><span class="chip ch-time">2–3 months</span><span class="chip ch-warn">Evolving role</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:70%"></div></div><span style="font-size:.65rem;color:#94a3b8">Growing</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Job success (3 months prep)</span><span class="success-pct pct-med" style="font-size:.85rem">55%</span></div>
+          <div class="success-track"><div class="success-fill med" style="width:55%"></div></div>
+        </div>
+        <p class="node-desc">Design and optimize prompts for business AI systems. Train AI models with human feedback (RLHF). Companies are actively hiring people who can make AI output better and more reliable.</p>
+        <div class="steps-box"><h4>How to start</h4><ul>
+          <li>Practice prompt engineering: LearnPrompting.org (free)</li>
+          <li>Build: prompt libraries for specific industries</li>
+          <li>Apply at: AI companies, BPOs adopting AI, remote platforms (Scale AI, Remotasks)</li>
+          <li>Note: standalone "prompt engineer" roles may evolve — best combined with data or BA skills</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-career-card">
+        <h3>🎯 AI Product Manager</h3>
+        <div class="chips"><span class="chip ch-salary">₹10–25 LPA</span><span class="chip ch-time">1–2 years experience first</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:85%"></div></div><span style="font-size:.65rem;color:#94a3b8">High</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Accessible after 1–2 yrs experience</span><span class="success-pct pct-med" style="font-size:.85rem">48%</span></div>
+          <div class="success-track"><div class="success-fill med" style="width:48%"></div></div>
+        </div>
+        <p class="node-desc">Manage AI-powered products: chatbots, recommendation engines, automation tools. BBA (business sense) + tech exposure + understanding of AI = ideal PM profile. This is where BBA + any tech cert leads in 3–5 years.</p>
+        <div class="steps-box"><h4>Path to AI PM</h4><ul>
+          <li>Start as: BA or Data Analyst (1–2 years)</li>
+          <li>Learn: Product management basics (Product Space, Aha!)</li>
+          <li>Add: AI/ML concepts (fast.ai, Google ML crash course — free)</li>
+          <li>Target: AI-first startups, not large IT service companies</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-career-card">
+        <h3>🛡️ AI Security Analyst</h3>
+        <div class="chips"><span class="chip ch-salary">₹7–16 LPA</span><span class="chip ch-time">8–12 months</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:90%"></div></div><span style="font-size:.65rem;color:#94a3b8">Very High</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Success (after 9 months prep)</span><span class="success-pct pct-med" style="font-size:.85rem">50%</span></div>
+          <div class="success-track"><div class="success-fill med" style="width:50%"></div></div>
+        </div>
+        <p class="node-desc">Test AI systems for vulnerabilities, manage AI model security, protect companies from AI-powered cyberattacks. Completely new field — almost no one specialises in this yet. Being early = massive advantage.</p>
+        <div class="steps-box"><h4>How to enter this niche</h4><ul>
+          <li>CompTIA Security+ first (6 months)</li>
+          <li>Study: OWASP Top 10 for LLMs (free), prompt injection, model poisoning</li>
+          <li>Practice: AI Red Teaming on open-source models (Hugging Face)</li>
+          <li>This field will be mainstream by 2027 — being early is a huge advantage</li>
+        </ul></div>
+      </div>
+
+      <div class="ai-career-card">
+        <h3>📊 No-Code / AI Tools Consultant</h3>
+        <div class="chips"><span class="chip ch-salary">₹4–10 LPA / ₹30K–1L freelance</span><span class="chip ch-time">1–2 months</span></div>
+        <div class="ai-demand-bar"><span class="ai-demand-label">Demand</span><div class="ai-demand-track"><div class="ai-demand-fill" style="width:65%"></div></div><span style="font-size:.65rem;color:#94a3b8">Growing</span></div>
+        <div class="success-wrap" style="padding:8px 10px">
+          <div class="success-header"><span class="success-label">Success (1–2 months prep)</span><span class="success-pct pct-high" style="font-size:.85rem">70%</span></div>
+          <div class="success-track"><div class="success-fill" style="width:70%"></div></div>
+        </div>
+        <p class="node-desc">Help small businesses automate their operations using AI and no-code tools. Most business owners don't know how to use ChatGPT, Zapier, Notion AI, or Make.com for their workflows — she can be that consultant. Very low barrier to entry.</p>
+        <div class="steps-box"><h4>Tools to learn (all free trials)</h4><ul>
+          <li>Zapier / Make.com — automation workflows</li>
+          <li>Notion AI — intelligent workspace setup</li>
+          <li>ChatGPT API + Zapier — automated business workflows</li>
+          <li>Canva AI, Midjourney — design for non-designers</li>
+          <li>Charge: ₹5K–20K per business automation project</li>
+        </ul></div>
+      </div>
+
+    </div>
+
+    <div class="rec-banner" style="margin-top:24px">
+      <strong>🤖 Key AI Era Advice (regardless of which path she picks):</strong><br><br>
+      1. <strong>Learn AI tools from day 1</strong> — ChatGPT, Claude, GitHub Copilot, Canva AI. These are not optional in 2026. Every job posting now expects "AI-literate" candidates.<br>
+      2. <strong>Her Python knowledge is gold</strong> — Python + AI APIs (OpenAI, Anthropic) = she can build AI-powered tools. Start with simple projects: a chatbot, a document summarizer, an auto-emailer.<br>
+      3. <strong>AI won't replace her — someone using AI will.</strong> The goal is to be the person using AI to do 5x more than competitors. This applies to every path above.<br>
+      4. <strong>Best AI-era combo for her specifically:</strong> Data Analytics Track (Path 2A) + Python + OpenAI API basics + Power BI Copilot = she becomes an "AI Data Analyst" — one of the most in-demand profiles of 2026–2030.
+    </div>
+  </div>
+</div>
+
+<!-- FINAL SUMMARY TABLE -->
+<div class="compare-wrap">
+  <div class="section-divider" style="margin-bottom:20px"><span>Quick Comparison — All Paths</span></div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Time to First Job</th>
+        <th>Success Chance</th>
+        <th>Starting Salary</th>
+        <th>AI Resilience</th>
+        <th>Cost</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Path 1 — BA Direct</td>
+        <td>2–3 months</td>
+        <td style="color:#fbbf24">50%</td>
+        <td>₹3–6 LPA</td>
+        <td style="color:#fbbf24">58/100</td>
+        <td>₹0–5K</td>
+        <td>If urgent income needed</td>
+      </tr>
+      <tr>
+        <td>Path 1 — Dev Direct</td>
+        <td>3–4 months</td>
+        <td style="color:#f87171">28%</td>
+        <td>₹2.5–5 LPA</td>
+        <td style="color:#fbbf24">50/100</td>
+        <td>₹0–3K</td>
+        <td>Hard without portfolio</td>
+      </tr>
+      <tr style="background:#0c1a2e">
+        <td><strong>★ Path 2 — Data Analytics</strong></td>
+        <td><strong>6–7 months</strong></td>
+        <td style="color:#4ade80"><strong>78%</strong></td>
+        <td><strong>₹4–9 LPA</strong></td>
+        <td style="color:#4ade80"><strong>82/100</strong></td>
+        <td><strong>₹5K–25K</strong></td>
+        <td style="color:#38bdf8"><strong>BEST OVERALL PICK</strong></td>
+      </tr>
+      <tr>
+        <td>Path 2 — BA Cert</td>
+        <td>5–6 months</td>
+        <td style="color:#4ade80">72%</td>
+        <td>₹3.5–7 LPA</td>
+        <td style="color:#fbbf24">65/100</td>
+        <td>₹8K–20K</td>
+        <td>Fastest first job</td>
+      </tr>
+      <tr>
+        <td>Path 2 — Bootcamp</td>
+        <td>8–10 months</td>
+        <td style="color:#4ade80">68%</td>
+        <td>₹5–13 LPA</td>
+        <td style="color:#4ade80">78/100</td>
+        <td>₹0 (ISA)</td>
+        <td>Highest ceiling</td>
+      </tr>
+      <tr>
+        <td>Path 3 — CMAT/SNAP/NMAT</td>
+        <td>3 years</td>
+        <td style="color:#fbbf24">40% good college</td>
+        <td>₹6–18 LPA (if good college)</td>
+        <td style="color:#fbbf24">72/100</td>
+        <td>₹3K–40K prep</td>
+        <td>Only if 90+ percentile</td>
+      </tr>
+      <tr>
+        <td>Path 4 — Digital Mktg Freelance</td>
+        <td>Parallel</td>
+        <td style="color:#fbbf24">50% in yr 1</td>
+        <td>₹15K–60K/month</td>
+        <td style="color:#4ade80">72/100</td>
+        <td>₹5K–10K</td>
+        <td>Best parallel income</td>
+      </tr>
+      <tr>
+        <td>🤖 LLM App Developer</td>
+        <td>5–7 months</td>
+        <td style="color:#4ade80">65%</td>
+        <td>₹8–20 LPA</td>
+        <td style="color:#4ade80">95/100</td>
+        <td>₹0–5K</td>
+        <td>Future-proof, highest ceiling</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  Career Decision Tree · BBA → Tech (AI Era) · India job market · Created May 2026
+</footer>
+
+<script>
+// Script is at the bottom of <body> — DOM is already ready. No DOMContentLoaded needed.
+
+/* ── PRONOUN REPLACEMENT ── */
+(function () {
+  const rules = [
+    [/\bShe has\b/g,  'You have'],
+    [/\bshe has\b/g,  'you have'],
+    [/\bShe is\b/g,   'You are'],
+    [/\bshe is\b/g,   'you are'],
+    [/\bShe's\b/g,    "You're"],
+    [/\bshe's\b/g,    "you're"],
+    [/\bShe can\b/g,  'You can'],
+    [/\bshe can\b/g,  'you can'],
+    [/\bShe will\b/g, 'You will'],
+    [/\bshe will\b/g, 'you will'],
+    [/\bShe'll\b/g,   "You'll"],
+    [/\bshe'll\b/g,   "you'll"],
+    // object-pronoun patterns before generic "her" replacement
+    [/\bsuit her\b/g,    'suit you'],
+    [/\bsuits her\b/g,   'suits you'],
+    [/\bhelps her\b/g,   'helps you'],
+    [/\bhelp her\b/g,    'help you'],
+    [/\bgives her\b/g,   'gives you'],
+    [/\bgive her\b/g,    'give you'],
+    [/\bgets her\b/g,    'gets you'],
+    [/\bfit for her\b/g, 'fit for you'],
+    [/\bgood for her\b/g,'good for you'],
+    [/\bfor her\b(?=\s*[.!?,;)])/g, 'for you'],
+    [/\bwith her\b(?=\s*[.!?,;—)])/g, 'with you'],
+    [/\bto her\b(?=\s*[.!?,;—)])/g,   'to you'],
+    // general
+    [/\bShe\b/g,  'You'],
+    [/\bshe\b/g,  'you'],
+    [/\bHer\b/g,  'Your'],
+    [/\bher\b/g,  'your'],
+    [/\bhers\b/g, 'yours'],
+    [/\bHers\b/g, 'Yours'],
+    [/\bherself\b/g, 'yourself'],
+    // fix artefacts from the above
+    [/\bfor your\b(?=\s*[.!?,;—)])/g, 'for you'],
+    [/\bwith your\b(?=\s*[.!?,;—)])/g,'with you'],
+    [/\bto your\b(?=\s*[.!?,;—)])/g,  'to you'],
+  ];
+
+  function applyRules(text) {
+    for (const [re, rep] of rules) text = text.replace(re, rep);
+    return text;
+  }
+
+  function walk(node) {
+    if (node.nodeType === 3) {
+      const orig = node.textContent;
+      const next = applyRules(orig);
+      if (next !== orig) node.textContent = next;
+    } else if (node.nodeType === 1 &&
+               node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+      node.childNodes.forEach(walk);
+    }
+  }
+  walk(document.body);
+})();
+
+/* ── QUIZ LOGIC ── */
+(function () {
+  var answers = {};
+
+  document.querySelectorAll('.quiz-opt').forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      var container = opt.closest('.quiz-opts');
+      var q = container.getAttribute('data-q');
+      var v = opt.getAttribute('data-v');
+      container.querySelectorAll('.quiz-opt').forEach(function (o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      answers[q] = v;
+      var dotNum = q.replace('q', '');
+      var dot = document.getElementById('dot' + dotNum);
+      if (dot) dot.classList.add('done');
+      document.getElementById('quiz-submit').disabled = Object.keys(answers).length < 5;
+    });
+  });
+
+  document.getElementById('quiz-submit').addEventListener('click', function () {
+    var q1=answers.q1, q2=answers.q2, q3=answers.q3, q4=answers.q4, q5=answers.q5;
+
+    var s = { p1ba:0, p1dev:0, p2a:0, p2b:0, p2c:0, p2sec:0, p3:0, p4:0, ai:0 };
+
+  // Q1 — goal
+  if (q1==='A') { s.p1ba+=3; s.p2b+=2; }
+  if (q1==='B') { s.p2a+=3; s.p2b+=2; s.p2c+=1; }
+  if (q1==='C') { s.p2c+=3; s.ai+=3; s.p1dev+=1; }
+  if (q1==='D') { s.p4+=4; }
+
+  // Q2 — timeline
+  if (q2==='A') { s.p1ba+=3; s.p2b+=2; }
+  if (q2==='B') { s.p2a+=2; s.p2b+=2; s.p2c+=1; }
+  if (q2==='C') { s.p3+=4; s.p2c+=1; }
+  if (q2==='D') { s.p4+=2; s.p2a+=1; s.p2b+=1; }
+
+  // Q3 — work type
+  if (q3==='A') { s.p2a+=4; s.ai+=2; }
+  if (q3==='B') { s.p2b+=4; s.p1ba+=2; }
+  if (q3==='C') { s.p2c+=4; s.ai+=3; s.p1dev+=1; }
+  if (q3==='D') { s.p4+=4; s.p2b+=1; }
+
+  // Q4 — exam appetite
+  if (q4==='A') { s.p3+=4; }
+  if (q4==='B') { s.p3+=1; s.p2a+=1; }
+  if (q4==='C') { s.p2a+=2; s.p2b+=2; s.p2c+=1; }
+  if (q4==='D') { /* neutral */ }
+
+  // Q5 — AI attitude
+  if (q5==='A') { s.ai+=4; s.p2c+=2; }
+  if (q5==='B') { s.p2a+=2; s.p2b+=1; }
+  if (q5==='C') { s.p2b+=1; s.p1ba+=1; }
+  if (q5==='D') { s.p3+=2; s.p4+=1; }
+
+    var sorted = Object.keys(s).sort(function(a,b){return s[b]-s[a];});
+    var winner = sorted[0], runner = sorted[1];
+
+    var results = {
+    p1ba: {
+      icon:'⚡', color:'#059669', border:'#10b981',
+      title:'Path 1 — Direct BA Job Hunt',
+      why:`Your priority is income quickly and your BBA background matches Business Analyst roles naturally. Skip the long prep — spend 2–3 months learning SQL, JIRA and Agile basics, build 2 case studies, and start applying. This is your fastest route to a paycheck.`,
+      link:'#path1', linkText:'Go to Path 1 Details',
+      also: 'Also consider: Data Analytics certifications on weekends to grow faster from this role.'
+    },
+    p1dev: {
+      icon:'💻', color:'#059669', border:'#10b981',
+      title:'Path 1 — Junior Developer (Direct)',
+      why:`You want to code, and you want to start fast. Fair — but be realistic: build at least 3 solid GitHub projects first, then apply to startups (not large IT firms). Without a CS degree, portfolio is everything.`,
+      link:'#path1', linkText:'Go to Path 1 Details',
+      also: 'Stronger option: Full-Stack Bootcamp (Path 2C) gives you structured support + placement help.'
+    },
+    p2a: {
+      icon:'📊', color:'#0284c7', border:'#38bdf8',
+      title:'★ Path 2A — Data Analytics (Top Pick for You)',
+      why:`Your interest in data + willingness to spend 6–9 months prepping + BBA business context = a very strong combo. Start with Google Data Analytics Certificate, add Power BI and SQL, build 3 projects, and you'll be applying for ₹4–9 LPA analyst roles. Then enroll in a distance MBA while working.`,
+      link:'#path2', linkText:'Go to Path 2 Details',
+      also: 'Also explore: AI Data Analyst track — adds ChatGPT + PandasAI on top of this path for even stronger positioning.'
+    },
+    p2b: {
+      icon:'🎯', color:'#0284c7', border:'#38bdf8',
+      title:'Path 2B — Business Analyst Certification',
+      why:`You're drawn to people-facing work — requirements, processes, stakeholder conversations. Your BBA is a natural bridge to BA roles. Get the IIBA ECBA cert + SQL basics + Agile in 3–5 months. This is the fastest Path 2 option and BBA grads do well here.`,
+      link:'#path2', linkText:'Go to Path 2 Details',
+      also: 'Add SQL + Power BI after your first 3 months to become a "Technical BA" — commands ₹2–3L more salary.'
+    },
+    p2c: {
+      icon:'🚀', color:'#0284c7', border:'#38bdf8',
+      title:'Path 2C — Full-Stack Dev Bootcamp (ISA)',
+      why:`You want to build things, and you're willing to invest 6–9 months. The ISA bootcamp model means you pay NOTHING upfront — only after you get a job. Your existing HTML + Python background means you'll be ahead of most batchmates from day 1.`,
+      link:'#path2', linkText:'Go to Path 2 Details',
+      also: 'After bootcamp, explore building LLM-powered apps (OpenAI API + Python) — this puts you in the top 5% of junior developers in 2026.'
+    },
+    p2sec: {
+      icon:'🔒', color:'#0284c7', border:'#38bdf8',
+      title:'Path 2D — Cybersecurity Track',
+      why:`High demand, good salaries, and AI is making this field even bigger. Your path: CompTIA Security+ in 6–8 months, TryHackMe for hands-on practice, then target SOC Analyst roles. It's slower from a BBA background but the demand shortage means persistence pays off.`,
+      link:'#path2', linkText:'Go to Path 2 Details',
+      also: "Check out AI Security Analyst in the AI Era section — zero-competition niche that's exploding in 2026-28."
+    },
+    p3: {
+      icon:'🎓', color:'#7c3aed', border:'#a78bfa',
+      title:'Path 3 — Entrance Exam → Better College MBA',
+      why:`You're willing to put in the preparation time and think long-term. Smart move — but only if you get into a GOOD college (SIBM, NMIMS, KJ Somaiya level). Target the CMAT + SNAP + NMAT combo — all fall in the same Oct–Feb window and need just 4–5 months of prep. If you score 90+ in any one, go for it.`,
+      link:'#path3', linkText:'Go to Path 3 + Exam Details',
+      also: 'Backup plan: if all scores are below 80 percentile after the exam cycle, immediately execute Path 2A. The year of prep builds verbal and quant skills that directly help in analyst interviews.'
+    },
+    p4: {
+      icon:'💼', color:'#b45309', border:'#f59e0b',
+      title:'Path 4 — Freelance / Build Your Own Thing',
+      why:`You want to be your own boss — that's a valid and exciting choice. Start with digital marketing freelancing (BBA marketing + free Google certs = quick start), combine with web development using your HTML base. Run this alongside a certification (Path 2A or 2B) so you have income security while the freelance business grows.`,
+      link:'#path4', linkText:'Go to Path 4 Details',
+      also: 'Use AI tools (ChatGPT, Canva AI, v0.dev) from day 1 — AI-augmented freelancers can serve 4–5x more clients at the same quality.'
+    },
+    ai: {
+      icon:'🤖', color:'#6366f1', border:'#818cf8',
+      title:'AI Era — LLM App Developer / AI Data Analyst',
+      why:`You're excited about AI and want to build with it. This is the highest-ceiling path in 2026. Your Python base + OpenAI API + a few months of LangChain practice = you can build real AI-powered apps. Start with the Data Analytics track (for business sense) then layer in AI tools on top.`,
+      link:'#aiera', linkText:'Go to AI Era Careers',
+      also: 'Combine with: Path 2A Data Analytics (4–6 months) → then specialize into AI Data Analyst. This dual path is the strongest 2026–30 profile for your background.'
+    }
+  };
+
+    var r = results[winner];
+    var ra = results[runner];
+    var secondLine = ra
+      ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid #1e293b;font-size:.72rem;color:#64748b">'
+        + '<strong style="color:#475569">Also worth considering:</strong> ' + ra.title + ' — ' + ra.why.substring(0,120) + '... '
+        + '<a href="' + ra.link + '" style="color:#60a5fa;text-decoration:none;margin-left:4px">See details &darr;</a></div>'
+      : '';
+
+    var html = '<div class="qr-card" style="background:linear-gradient(135deg,#0a0f1a,#0f172a);border-color:' + r.border + '">'
+      + '<div class="qr-top"><span style="font-size:1.8rem">' + r.icon + '</span><div>'
+      + '<div class="qr-label">Your Recommended Path</div>'
+      + '<div class="qr-title" style="color:' + r.border + '">' + r.title + '</div>'
+      + '</div></div>'
+      + '<p class="qr-why">' + r.why + '</p>'
+      + '<div class="qr-actions">'
+      + '<a href="' + r.link + '" class="qr-btn qr-btn-primary" style="background:' + r.color + '">' + r.linkText + ' &darr;</a>'
+      + '<button class="qr-btn qr-btn-secondary" id="reset-quiz-btn">Reset Quiz</button>'
+      + '</div>'
+      + '<p class="qr-also">' + r.also + '</p>'
+      + secondLine
+      + '</div>';
+
+    var el = document.getElementById('quiz-result');
+    el.innerHTML = html;
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+
+    document.getElementById('reset-quiz-btn').addEventListener('click', function () {
+      el.innerHTML = '';
+      answers = {};
+      document.querySelectorAll('.quiz-opt').forEach(function (o) { o.classList.remove('selected'); });
+      document.querySelectorAll('.quiz-dot').forEach(function (d) { d.classList.remove('done'); });
+      document.getElementById('quiz-submit').disabled = true;
+      document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+    });
+  });
+}());
+</script>
+
+</body>
+</html>
